@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Translation & Voice Features</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0a1929;
+            color: #e0e0e0;
+        }
+        .test-section {
+            background: #1a2332;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #00ffc3;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #1b5e20;
+            color: #4caf50;
+        }
+        .error {
+            background: #b71c1c;
+            color: #f44336;
+        }
+        .info {
+            background: #01579b;
+            color: #03a9f4;
+        }
+        button {
+            background: #00ffc3;
+            color: #0a1929;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #00e6b0;
+        }
+        .voice-btn {
+            background: rgba(0, 255, 200, 0.2);
+            border: 1px solid #00ffc3;
+            color: #00ffc3;
+            padding: 8px 12px;
+            font-size: 18px;
+        }
+        h1 {
+            color: #00ffc3;
+            text-align: center;
+        }
+        h2 {
+            color: #00ffc3;
+        }
+        code {
+            background: #0a1929;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #00ffc3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Translation & Voice Feature Test</h1>
+    
+    <div class="test-section">
+        <h2>📋 System Status</h2>
+        <div id="systemStatus">Checking...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>🌍 Translation Test</h2>
+        <button onclick="testTranslation()">Test Translation</button>
+        <div id="translationResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔊 Voice Test</h2>
+        <button onclick="testVoice()">Test Voice (English)</button>
+        <button onclick="testVoiceHindi()">Test Voice (Hindi)</button>
+        <button onclick="stopVoice()">Stop Voice</button>
+        <div id="voiceResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎤 Voice Button Test</h2>
+        <button onclick="createTestVoiceButton()">Create Voice Button</button>
+        <div id="voiceButtonContainer"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Cache Stats</h2>
+        <button onclick="showCacheStats()">Show Cache Stats</button>
+        <div id="cacheStats"></div>
+    </div>
+
+    <!-- Load all scripts -->
+    <script src="js/data/diseases.js"></script>
+    <script src="js/data/translations.js"></script>
+    <script src="js/data/translation-dictionary.js"></script>
+    <script src="js/utils/utilities.js"></script>
+    <script src="js/utils/indexeddb-manager.js"></script>
+    <script src="js/utils/translation-cache.js"></script>
+    <script src="js/features/translation-manager.js"></script>
+    <script src="js/features/voice-manager.js"></script>
+    <script src="js/features/translation-init.js"></script>
+    <script src="js/ui/voice-button.js"></script>
+
+    <script>
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', async () => {
+            const statusDiv = document.getElementById('systemStatus');
+            statusDiv.innerHTML = '<div class="status info">Initializing systems...</div>';
+
+            try {
+                // Initialize translation and voice
+                const result = await initializeTranslationAndVoice();
+                
+                let html = '';
+                
+                if (result.translation) {
+                    html += '<div class="status success">✅ Translation System: WORKING</div>';
+                } else {
+                    html += '<div class="status error">❌ Translation System: FAILED</div>';
+                }
+                
+                if (result.voice) {
+                    html += '<div class="status success">✅ Voice System: WORKING</div>';
+                } else {
+                    html += '<div class="status error">❌ Voice System: FAILED</div>';
+                }
+                
+                if (result.errors.length > 0) {
+                    html += '<div class="status error">Errors: ' + result.errors.join(', ') + '</div>';
+                }
+                
+                statusDiv.innerHTML = html;
+            } catch (error) {
+                statusDiv.innerHTML = '<div class="status error">❌ Initialization Failed: ' + error.message + '</div>';
+            }
+        });
+
+        // Test translation
+        async function testTranslation() {
+            const resultDiv = document.getElementById('translationResult');
+            resultDiv.innerHTML = '<div class="status info">Testing translation...</div>';
+
+            try {
+                const tm = getTranslationManager();
+                
+                // Test translating "fever" to Hindi
+                const result = await tm.translate('fever', 'hi', 'diseases');
+                
+                resultDiv.innerHTML = `
+                    <div class="status success">
+                        ✅ Translation Works!<br>
+                        English: "fever"<br>
+                        Hindi: "${result}"<br>
+                        Expected: "बुखार"
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="status error">❌ Translation Failed: ' + error.message + '</div>';
+            }
+        }
+
+        // Test voice
+        async function testVoice() {
+            const resultDiv = document.getElementById('voiceResult');
+            resultDiv.innerHTML = '<div class="status info">Speaking...</div>';
+
+            try {
+                const vm = getVoiceManager();
+                await vm.speak('Hello! Translation and voice features are working correctly.', 'en');
+                resultDiv.innerHTML = '<div class="status success">✅ Voice played successfully!</div>';
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="status error">❌ Voice Failed: ' + error.message + '</div>';
+            }
+        }
+
+        // Test voice in Hindi
+        async function testVoiceHindi() {
+            const resultDiv = document.getElementById('voiceResult');
+            resultDiv.innerHTML = '<div class="status info">Speaking in Hindi...</div>';
+
+            try {
+                const vm = getVoiceManager();
+                await vm.speak('नमस्ते! अनुवाद और आवाज की सुविधाएं सही तरीके से काम कर रही हैं।', 'hi');
+                resultDiv.innerHTML = '<div class="status success">✅ Hindi voice played successfully!</div>';
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="status error">❌ Voice Failed: ' + error.message + '</div>';
+            }
+        }
+
+        // Stop voice
+        function stopVoice() {
+            const vm = getVoiceManager();
+            vm.stop();
+            document.getElementById('voiceResult').innerHTML = '<div class="status info">Voice stopped</div>';
+        }
+
+        // Create voice button
+        function createTestVoiceButton() {
+            const container = document.getElementById('voiceButtonContainer');
+            container.innerHTML = '';
+            
+            const text = 'This is a test of the voice button component. Click the speaker icon to hear this message.';
+            const voiceBtn = createVoiceButton(text, 'en');
+            
+            const wrapper = document.createElement('div');
+            wrapper.style.padding = '20px';
+            wrapper.style.background = '#0a1929';
+            wrapper.style.borderRadius = '5px';
+            wrapper.innerHTML = '<p>Click the speaker icon: </p>';
+            wrapper.appendChild(voiceBtn);
+            
+            container.appendChild(wrapper);
+        }
+
+        // Show cache stats
+        function showCacheStats() {
+            const statsDiv = document.getElementById('cacheStats');
+            
+            try {
+                const tm = getTranslationManager();
+                const stats = tm.getCacheStats();
+                
+                if (stats) {
+                    statsDiv.innerHTML = `
+                        <div class="status success">
+                            <strong>Cache Statistics:</strong><br>
+                            Size: ${stats.size} / ${stats.maxSize}<br>
+                            Hits: ${stats.hits}<br>
+                            Misses: ${stats.misses}<br>
+                            Hit Rate: ${stats.hitRate}<br>
+                            Utilization: ${stats.utilizationPercent}%
+                        </div>
+                    `;
+                } else {
+                    statsDiv.innerHTML = '<div class="status error">Cache stats not available</div>';
+                }
+            } catch (error) {
+                statsDiv.innerHTML = '<div class="status error">Error: ' + error.message + '</div>';
+            }
+        }
+    </script>
+</body>
+</html>

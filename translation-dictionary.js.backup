@@ -1,0 +1,1382 @@
+/* ====================================== */
+/* NIHAM - Translation Dictionary         */
+/* ====================================== */
+
+/**
+ * Comprehensive offline translation dictionary for medical terms
+ * Organized by category: diseases, symptoms, remedies, general
+ * Supports 7 languages: en, hi, te, ta, bn, mr, gu
+ */
+
+const TRANSLATION_DICTIONARY = {
+  // Disease names
+  diseases: {
+    en: {
+      'fever': 'Fever',
+      'common cold': 'Common Cold',
+      'influenza': 'Influenza (Flu)',
+      'diabetes': 'Diabetes (Type 2)',
+      'hypertension': 'Hypertension',
+      'asthma': 'Asthma',
+      'pneumonia': 'Pneumonia',
+      'tuberculosis': 'Tuberculosis (TB)',
+      'covid-19': 'COVID-19',
+      'malaria': 'Malaria',
+      'dengue': 'Dengue',
+      'typhoid': 'Typhoid',
+      'hepatitis': 'Hepatitis',
+      'arthritis': 'Arthritis',
+      'anemia': 'Anemia',
+      'migraine': 'Migraine',
+      'obesity': 'Obesity',
+      'stomach ulcer': 'Stomach Ulcer',
+      'epilepsy': 'Epilepsy',
+      'appendicitis': 'Appendicitis',
+      'depression': 'Depression',
+      'anxiety': 'Anxiety',
+      'kidney stones': 'Kidney Stones',
+      'copd': 'COPD',
+      'alzheimer': "Alzheimer's Disease",
+      'parkinson': "Parkinson's Disease",
+      'cancer': 'Cancer',
+      'hiv': 'HIV/AIDS',
+      'rabies': 'Rabies',
+      'tetanus': 'Tetanus',
+      'acne': 'Acne',
+      'gout': 'Gout',
+      'insomnia': 'Insomnia',
+      'food poisoning': 'Food Poisoning',
+      'allergy': 'Allergy'
+    },
+    hi: {
+      'fever': 'बुखार',
+      'common cold': 'सामान्य सर्दी',
+      'influenza': 'इन्फ्लूएंजा (फ्लू)',
+      'diabetes': 'मधुमेह (टाइप 2)',
+      'hypertension': 'उच्च रक्तचाप',
+      'asthma': 'दमा',
+      'pneumonia': 'निमोनिया',
+      'tuberculosis': 'तपेदिक (टीबी)',
+      'covid-19': 'कोविड-19',
+      'malaria': 'मलेरिया',
+      'dengue': 'डेंगू',
+      'typhoid': 'टाइफाइड',
+      'hepatitis': 'हेपेटाइटिस',
+      'arthritis': 'गठिया',
+      'anemia': 'एनीमिया',
+      'migraine': 'माइग्रेन',
+      'obesity': 'मोटापा',
+      'stomach ulcer': 'पेट का अल्सर',
+      'epilepsy': 'मिर्गी',
+      'appendicitis': 'अपेंडिसाइटिस',
+      'depression': 'अवसाद',
+      'anxiety': 'चिंता',
+      'kidney stones': 'गुर्दे की पथरी',
+      'copd': 'सीओपीडी',
+      'alzheimer': 'अल्जाइमर रोग',
+      'parkinson': 'पार्किंसंस रोग',
+      'cancer': 'कैंसर',
+      'hiv': 'एचआईवी/एड्स',
+      'rabies': 'रेबीज',
+      'tetanus': 'टिटनेस',
+      'acne': 'मुंहासे',
+      'gout': 'गाउट',
+      'insomnia': 'अनिद्रा',
+      'food poisoning': 'खाद्य विषाक्तता',
+      'allergy': 'एलर्जी'
+    },
+    te: {
+      'fever': 'జ్వరం',
+      'common cold': 'సాధారణ జలుబు',
+      'influenza': 'ఇన్ఫ్లుఎంజా (ఫ్లూ)',
+      'diabetes': 'మధుమేహం (టైప్ 2)',
+      'hypertension': 'రక్తపోటు',
+      'asthma': 'ఆస్తమా',
+      'pneumonia': 'న్యుమోనియా',
+      'tuberculosis': 'క్షయవ్యాధి (టీబీ)',
+      'covid-19': 'కోవిడ్-19',
+      'malaria': 'మలేరియా',
+      'dengue': 'డెంగ్యూ',
+      'typhoid': 'టైఫాయిడ్',
+      'hepatitis': 'హెపటైటిస్',
+      'arthritis': 'కీళ్ళ నొప్పులు',
+      'anemia': 'రక్తహీనత',
+      'migraine': 'మైగ్రేన్',
+      'obesity': 'ఊబకాయం',
+      'stomach ulcer': 'కడుపు పుండు',
+      'epilepsy': 'మూర్ఛ',
+      'appendicitis': 'అపెండిసైటిస్',
+      'depression': 'నిరాశ',
+      'anxiety': 'ఆందోళన',
+      'kidney stones': 'మూత్రపిండాల రాళ్ళు',
+      'copd': 'సీఓపీడీ',
+      'alzheimer': 'అల్జీమర్ వ్యాధి',
+      'parkinson': 'పార్కిన్సన్ వ్యాధి',
+      'cancer': 'క్యాన్సర్',
+      'hiv': 'హెచ్ఐవి/ఎయిడ్స్',
+      'rabies': 'రాబిస్',
+      'tetanus': 'టెటనస్',
+      'acne': 'మొటిమలు',
+      'gout': 'గౌట్',
+      'insomnia': 'నిద్రలేమి',
+      'food poisoning': 'ఆహార విషప్రయోగం',
+      'allergy': 'అలెర్జీ'
+    },
+    ta: {
+      'fever': 'காய்ச்சல்',
+      'common cold': 'சாதாரண சளி',
+      'influenza': 'இன்ஃப்ளூயன்சா (காய்ச்சல்)',
+      'diabetes': 'நீரிழிவு (வகை 2)',
+      'hypertension': 'உயர் இரத்த அழுத்தம்',
+      'asthma': 'ஆஸ்துமா',
+      'pneumonia': 'நிமோனியா',
+      'tuberculosis': 'காசநோய் (டிபி)',
+      'covid-19': 'கோவிட்-19',
+      'malaria': 'மலேரியா',
+      'dengue': 'டெங்கு',
+      'typhoid': 'டைபாய்டு',
+      'hepatitis': 'ஹெபடைடிஸ்',
+      'arthritis': 'மூட்டுவலி',
+      'anemia': 'இரத்த சோகை',
+      'migraine': 'ஒற்றைத் தலைவலி',
+      'obesity': 'உடல் பருமன்',
+      'stomach ulcer': 'வயிற்றுப் புண்',
+      'epilepsy': 'வலிப்பு',
+      'appendicitis': 'குடல்வால் அழற்சி',
+      'depression': 'மனச்சோர்வு',
+      'anxiety': 'பதட்டம்',
+      'kidney stones': 'சிறுநீரக கற்கள்',
+      'copd': 'சிஓபிடி',
+      'alzheimer': 'அல்சைமர் நோய்',
+      'parkinson': 'பார்கின்சன் நோய்',
+      'cancer': 'புற்றுநோய்',
+      'hiv': 'எச்ஐவி/எய்ட்ஸ்',
+      'rabies': 'ரேபிஸ்',
+      'tetanus': 'டெட்டனஸ்',
+      'acne': 'முகப்பரு',
+      'gout': 'கீல்வாதம்',
+      'insomnia': 'தூக்கமின்மை',
+      'food poisoning': 'உணவு நச்சு',
+      'allergy': 'ஒவ்வாமை'
+    },
+    bn: {
+      'fever': 'জ্বর',
+      'common cold': 'সাধারণ সর্দি',
+      'influenza': 'ইনফ্লুয়েঞ্জা (ফ্লু)',
+      'diabetes': 'ডায়াবেটিস (টাইপ ২)',
+      'hypertension': 'উচ্চ রক্তচাপ',
+      'asthma': 'হাঁপানি',
+      'pneumonia': 'নিউমোনিয়া',
+      'tuberculosis': 'যক্ষ্মা (টিবি)',
+      'covid-19': 'কোভিড-১৯',
+      'malaria': 'ম্যালেরিয়া',
+      'dengue': 'ডেঙ্গু',
+      'typhoid': 'টাইফয়েড',
+      'hepatitis': 'হেপাটাইটিস',
+      'arthritis': 'বাত',
+      'anemia': 'রক্তাল্পতা',
+      'migraine': 'মাইগ্রেন',
+      'obesity': 'স্থূলতা',
+      'stomach ulcer': 'পেটের আলসার',
+      'epilepsy': 'মৃগীরোগ',
+      'appendicitis': 'অ্যাপেন্ডিসাইটিস',
+      'depression': 'বিষণ্নতা',
+      'anxiety': 'উদ্বেগ',
+      'kidney stones': 'কিডনিতে পাথর',
+      'copd': 'সিওপিডি',
+      'alzheimer': 'আলঝেইমার রোগ',
+      'parkinson': 'পার্কিনসন রোগ',
+      'cancer': 'ক্যান্সার',
+      'hiv': 'এইচআইভি/এইডস',
+      'rabies': 'জলাতঙ্ক',
+      'tetanus': 'ধনুষ্টংকার',
+      'acne': 'ব্রণ',
+      'gout': 'গাউট',
+      'insomnia': 'অনিদ্রা',
+      'food poisoning': 'খাদ্যে বিষক্রিয়া',
+      'allergy': 'অ্যালার্জি'
+    },
+    mr: {
+      'fever': 'ताप',
+      'common cold': 'सामान्य सर्दी',
+      'influenza': 'इन्फ्लूएंझा (फ्लू)',
+      'diabetes': 'मधुमेह (प्रकार 2)',
+      'hypertension': 'उच्च रक्तदाब',
+      'asthma': 'दमा',
+      'pneumonia': 'न्यूमोनिया',
+      'tuberculosis': 'क्षयरोग (टीबी)',
+      'covid-19': 'कोविड-19',
+      'malaria': 'मलेरिया',
+      'dengue': 'डेंग्यू',
+      'typhoid': 'टायफॉइड',
+      'hepatitis': 'हिपॅटायटिस',
+      'arthritis': 'संधिवात',
+      'anemia': 'अशक्तपणा',
+      'migraine': 'मायग्रेन',
+      'obesity': 'लठ्ठपणा',
+      'stomach ulcer': 'पोटाचा व्रण',
+      'epilepsy': 'अपस्मार',
+      'appendicitis': 'अपेंडिसायटिस',
+      'depression': 'नैराश्य',
+      'anxiety': 'चिंता',
+      'kidney stones': 'मूत्रपिंडाचे खडे',
+      'copd': 'सीओपीडी',
+      'alzheimer': 'अल्झायमर रोग',
+      'parkinson': 'पार्किन्सन रोग',
+      'cancer': 'कर्करोग',
+      'hiv': 'एचआयव्ही/एड्स',
+      'rabies': 'रेबीज',
+      'tetanus': 'धनुर्वात',
+      'acne': 'मुरुम',
+      'gout': 'गाउट',
+      'insomnia': 'निद्रानाश',
+      'food poisoning': 'अन्न विषबाधा',
+      'allergy': 'ऍलर्जी'
+    },
+    gu: {
+      'fever': 'તાવ',
+      'common cold': 'સામાન્ય શરદી',
+      'influenza': 'ઈન્ફલ્યુએન્ઝા (ફ્લૂ)',
+      'diabetes': 'ડાયાબિટીસ (પ્રકાર 2)',
+      'hypertension': 'હાઈ બ્લડ પ્રેશર',
+      'asthma': 'અસ્થમા',
+      'pneumonia': 'ન્યુમોનિયા',
+      'tuberculosis': 'ક્ષય રોગ (ટીબી)',
+      'covid-19': 'કોવિડ-19',
+      'malaria': 'મેલેરિયા',
+      'dengue': 'ડેન્ગ્યુ',
+      'typhoid': 'ટાઈફોઈડ',
+      'hepatitis': 'હેપેટાઈટિસ',
+      'arthritis': 'સંધિવા',
+      'anemia': 'એનિમિયા',
+      'migraine': 'માઈગ્રેન',
+      'obesity': 'સ્થૂળતા',
+      'stomach ulcer': 'પેટનો અલ્સર',
+      'epilepsy': 'મરકી',
+      'appendicitis': 'એપેન્ડિસાઈટિસ',
+      'depression': 'ડિપ્રેશન',
+      'anxiety': 'ચિંતા',
+      'kidney stones': 'કિડનીમાં પથરી',
+      'copd': 'સીઓપીડી',
+      'alzheimer': 'અલ્ઝાઈમર રોગ',
+      'parkinson': 'પાર્કિન્સન રોગ',
+      'cancer': 'કેન્સર',
+      'hiv': 'એચઆઈવી/એઈડ્સ',
+      'rabies': 'હડકવા',
+      'tetanus': 'ટિટનેસ',
+      'acne': 'ખીલ',
+      'gout': 'ગાઉટ',
+      'insomnia': 'અનિદ્રા',
+      'food poisoning': 'ખોરાકમાં ઝેર',
+      'allergy': 'એલર્જી'
+    }
+  },
+
+  // Common symptoms
+  symptoms: {
+    en: {
+      'headache': 'Headache',
+      'cough': 'Cough',
+      'fatigue': 'Fatigue',
+      'nausea': 'Nausea',
+      'vomiting': 'Vomiting',
+      'diarrhea': 'Diarrhea',
+      'chest pain': 'Chest Pain',
+      'shortness of breath': 'Shortness of Breath',
+      'dizziness': 'Dizziness',
+      'fever': 'Fever',
+      'chills': 'Chills',
+      'body aches': 'Body Aches',
+      'sore throat': 'Sore Throat',
+      'runny nose': 'Runny Nose',
+      'congestion': 'Congestion',
+      'loss of appetite': 'Loss of Appetite',
+      'weight loss': 'Weight Loss',
+      'weight gain': 'Weight Gain',
+      'sweating': 'Sweating',
+      'weakness': 'Weakness',
+      'joint pain': 'Joint Pain',
+      'muscle pain': 'Muscle Pain',
+      'abdominal pain': 'Abdominal Pain',
+      'back pain': 'Back Pain',
+      'rash': 'Rash',
+      'itching': 'Itching',
+      'swelling': 'Swelling',
+      'numbness': 'Numbness',
+      'tingling': 'Tingling',
+      'blurred vision': 'Blurred Vision',
+      'confusion': 'Confusion',
+      'memory loss': 'Memory Loss',
+      'difficulty sleeping': 'Difficulty Sleeping',
+      'frequent urination': 'Frequent Urination',
+      'thirst': 'Thirst',
+      'bleeding': 'Bleeding',
+      'bruising': 'Bruising',
+      'pale skin': 'Pale Skin',
+      'rapid heartbeat': 'Rapid Heartbeat',
+      'irregular heartbeat': 'Irregular Heartbeat'
+    },
+    hi: {
+      'headache': 'सिरदर्द', 'cough': 'खांसी', 'fatigue': 'थकान', 'nausea': 'मतली',
+      'vomiting': 'उल्टी', 'diarrhea': 'दस्त', 'chest pain': 'सीने में दर्द',
+      'shortness of breath': 'सांस लेने में तकलीफ', 'dizziness': 'चक्कर आना',
+      'fever': 'बुखार', 'chills': 'ठंड लगना', 'body aches': 'शरीर में दर्द',
+      'sore throat': 'गले में खराश', 'runny nose': 'नाक बहना', 'congestion': 'नाक बंद होना',
+      'loss of appetite': 'भूख न लगना', 'weight loss': 'वजन कम होना',
+      'weight gain': 'वजन बढ़ना', 'sweating': 'पसीना आना', 'weakness': 'कमजोरी',
+      'joint pain': 'जोड़ों में दर्द', 'muscle pain': 'मांसपेशियों में दर्द',
+      'abdominal pain': 'पेट दर्द', 'back pain': 'कमर दर्द', 'rash': 'दाने',
+      'itching': 'खुजली', 'swelling': 'सूजन', 'numbness': 'सुन्नता',
+      'tingling': 'झुनझुनी', 'blurred vision': 'धुंधली दृष्टि', 'confusion': 'भ्रम',
+      'memory loss': 'याददाश्त कम होना', 'difficulty sleeping': 'नींद न आना',
+      'frequent urination': 'बार-बार पेशाब आना', 'thirst': 'प्यास', 'bleeding': 'रक्तस्राव',
+      'bruising': 'चोट के निशान', 'pale skin': 'पीली त्वचा',
+      'rapid heartbeat': 'तेज धड़कन', 'irregular heartbeat': 'अनियमित धड़कन'
+    },
+    te: {
+      'headache': 'తలనొప్పి', 'cough': 'దగ్గు', 'fatigue': 'అలసట', 'nausea': 'వాంతి భావన',
+      'vomiting': 'వాంతులు', 'diarrhea': 'విరేచనాలు', 'chest pain': 'ఛాతీ నొప్పి',
+      'shortness of breath': 'ఊపిరి ఆడకపోవడం', 'dizziness': 'తల తిరగడం',
+      'fever': 'జ్వరం', 'chills': 'చలి', 'body aches': 'శరీర నొప్పులు',
+      'sore throat': 'గొంతు నొప్పి', 'runny nose': 'ముక్కు కారడం', 'congestion': 'ముక్కు మూసుకోవడం',
+      'loss of appetite': 'ఆకలి లేకపోవడం', 'weight loss': 'బరువు తగ్గడం',
+      'weight gain': 'బరువు పెరగడం', 'sweating': 'చెమట', 'weakness': 'బలహీనత',
+      'joint pain': 'కీళ్ళ నొప్పి', 'muscle pain': 'కండరాల నొప్పి',
+      'abdominal pain': 'కడుపు నొప్పి', 'back pain': 'వెన్ను నొప్పి', 'rash': 'దద్దుర్లు',
+      'itching': 'దురద', 'swelling': 'వాపు', 'numbness': 'తిమ్మిరి',
+      'tingling': 'జలదరింపు', 'blurred vision': 'అస్పష్ట దృష్టి', 'confusion': 'గందరగోళం',
+      'memory loss': 'జ్ఞాపకశక్తి కోల్పోవడం', 'difficulty sleeping': 'నిద్ర రాకపోవడం',
+      'frequent urination': 'తరచుగా మూత్ర విసర్జన', 'thirst': 'దాహం', 'bleeding': 'రక్తస్రావం',
+      'bruising': 'గాయాలు', 'pale skin': 'లేత చర్మం',
+      'rapid heartbeat': 'వేగవంతమైన హృదయ స్పందన', 'irregular heartbeat': 'అసాధారణ హృదయ స్పందన'
+    },
+    ta: {
+      'headache': 'தலைவலி', 'cough': 'இருமல்', 'fatigue': 'சோர்வு', 'nausea': 'குமட்டல்',
+      'vomiting': 'வாந்தி', 'diarrhea': 'வயிற்றுப்போக்கு', 'chest pain': 'மார்பு வலி',
+      'shortness of breath': 'மூச்சுத் திணறல்', 'dizziness': 'தலைச்சுற்றல்',
+      'fever': 'காய்ச்சல்', 'chills': 'குளிர்', 'body aches': 'உடல் வலி',
+      'sore throat': 'தொண்டை வலி', 'runny nose': 'மூக்கு ஒழுகுதல்', 'congestion': 'மூக்கடைப்பு',
+      'loss of appetite': 'பசியின்மை', 'weight loss': 'எடை இழப்பு',
+      'weight gain': 'எடை அதிகரிப்பு', 'sweating': 'வியர்வை', 'weakness': 'பலவீனம்',
+      'joint pain': 'மூட்டு வலி', 'muscle pain': 'தசை வலி',
+      'abdominal pain': 'வயிற்று வலி', 'back pain': 'முதுகு வலி', 'rash': 'தடிப்பு',
+      'itching': 'அரிப்பு', 'swelling': 'வீக்கம்', 'numbness': 'உணர்வின்மை',
+      'tingling': 'கூச்ச உணர்வு', 'blurred vision': 'மங்கலான பார்வை', 'confusion': 'குழப்பம்',
+      'memory loss': 'நினைவாற்றல் இழப்பு', 'difficulty sleeping': 'தூக்கமின்மை',
+      'frequent urination': 'அடிக்கடி சிறுநீர் கழித்தல்', 'thirst': 'தாகம்', 'bleeding': 'இரத்தப்போக்கு',
+      'bruising': 'காயங்கள்', 'pale skin': 'வெளிறிய தோல்',
+      'rapid heartbeat': 'வேகமான இதயத் துடிப்பு', 'irregular heartbeat': 'ஒழுங்கற்ற இதயத் துடிப்பு'
+    },
+    bn: {
+      'headache': 'মাথাব্যথা', 'cough': 'কাশি', 'fatigue': 'ক্লান্তি', 'nausea': 'বমি বমি ভাব',
+      'vomiting': 'বমি', 'diarrhea': 'ডায়রিয়া', 'chest pain': 'বুকে ব্যথা',
+      'shortness of breath': 'শ্বাসকষ্ট', 'dizziness': 'মাথা ঘোরা',
+      'fever': 'জ্বর', 'chills': 'ঠান্ডা লাগা', 'body aches': 'শরীর ব্যথা',
+      'sore throat': 'গলা ব্যথা', 'runny nose': 'নাক দিয়ে পানি পড়া', 'congestion': 'নাক বন্ধ',
+      'loss of appetite': 'ক্ষুধামান্দ্য', 'weight loss': 'ওজন হ্রাস',
+      'weight gain': 'ওজন বৃদ্ধি', 'sweating': 'ঘাম', 'weakness': 'দুর্বলতা',
+      'joint pain': 'জয়েন্টে ব্যথা', 'muscle pain': 'পেশী ব্যথা',
+      'abdominal pain': 'পেট ব্যথা', 'back pain': 'পিঠে ব্যথা', 'rash': 'ফুসকুড়ি',
+      'itching': 'চুলকানি', 'swelling': 'ফোলা', 'numbness': 'অসাড়তা',
+      'tingling': 'ঝিনঝিন', 'blurred vision': 'ঝাপসা দৃষ্টি', 'confusion': 'বিভ্রান্তি',
+      'memory loss': 'স্মৃতিশক্তি হ্রাস', 'difficulty sleeping': 'ঘুমের সমস্যা',
+      'frequent urination': 'ঘন ঘন প্রস্রাব', 'thirst': 'তৃষ্ণা', 'bleeding': 'রক্তপাত',
+      'bruising': 'ক্ষত', 'pale skin': 'ফ্যাকাশে ত্বক',
+      'rapid heartbeat': 'দ্রুত হৃদস্পন্দন', 'irregular heartbeat': 'অনিয়মিত হৃদস্পন্দন'
+    },
+    mr: {
+      'headache': 'डोकेदुखी', 'cough': 'खोकला', 'fatigue': 'थकवा', 'nausea': 'मळमळ',
+      'vomiting': 'उलट्या', 'diarrhea': 'अतिसार', 'chest pain': 'छातीत दुखणे',
+      'shortness of breath': 'श्वास लागणे', 'dizziness': 'चक्कर येणे',
+      'fever': 'ताप', 'chills': 'थंडी वाजून येणे', 'body aches': 'शरीर दुखणे',
+      'sore throat': 'घसा दुखणे', 'runny nose': 'नाक वाहणे', 'congestion': 'नाक बंद होणे',
+      'loss of appetite': 'भूक न लागणे', 'weight loss': 'वजन कमी होणे',
+      'weight gain': 'वजन वाढणे', 'sweating': 'घाम येणे', 'weakness': 'अशक्तपणा',
+      'joint pain': 'सांधेदुखी', 'muscle pain': 'स्नायू दुखणे',
+      'abdominal pain': 'पोटदुखी', 'back pain': 'पाठदुखी', 'rash': 'पुरळ',
+      'itching': 'खाज सुटणे', 'swelling': 'सूज', 'numbness': 'सुन्न होणे',
+      'tingling': 'मुंग्या येणे', 'blurred vision': 'अंधुक दृष्टी', 'confusion': 'गोंधळ',
+      'memory loss': 'स्मरणशक्ती कमी होणे', 'difficulty sleeping': 'झोप न येणे',
+      'frequent urination': 'वारंवार लघवी होणे', 'thirst': 'तहान', 'bleeding': 'रक्तस्त्राव',
+      'bruising': 'जखम', 'pale skin': 'फिकट त्वचा',
+      'rapid heartbeat': 'वेगवान हृदयाचे ठोके', 'irregular heartbeat': 'अनियमित हृदयाचे ठोके'
+    },
+    gu: {
+      'headache': 'માથાનો દુખાવો', 'cough': 'ઉધરસ', 'fatigue': 'થાક', 'nausea': 'ઉબકા',
+      'vomiting': 'ઉલટી', 'diarrhea': 'ઝાડા', 'chest pain': 'છાતીમાં દુખાવો',
+      'shortness of breath': 'શ્વાસ લેવામાં તકલીફ', 'dizziness': 'ચક્કર આવવા',
+      'fever': 'તાવ', 'chills': 'ઠંડી લાગવી', 'body aches': 'શરીરમાં દુખાવો',
+      'sore throat': 'ગળામાં દુખાવો', 'runny nose': 'નાક વહેવું', 'congestion': 'નાક બંધ થવું',
+      'loss of appetite': 'ભૂખ ન લાગવી', 'weight loss': 'વજન ઘટવું',
+      'weight gain': 'વજન વધવું', 'sweating': 'પરસેવો', 'weakness': 'નબળાઈ',
+      'joint pain': 'સાંધામાં દુખાવો', 'muscle pain': 'સ્નાયુમાં દુખાવો',
+      'abdominal pain': 'પેટમાં દુખાવો', 'back pain': 'પીઠમાં દુખાવો', 'rash': 'ફોલ્લીઓ',
+      'itching': 'ખંજવાળ', 'swelling': 'સોજો', 'numbness': 'સુન્નતા',
+      'tingling': 'કળતર', 'blurred vision': 'અસ્પષ્ટ દ્રષ્ટિ', 'confusion': 'મૂંઝવણ',
+      'memory loss': 'યાદશક્તિ ઘટવી', 'difficulty sleeping': 'ઊંઘ ન આવવી',
+      'frequent urination': 'વારંવાર પેશાબ', 'thirst': 'તરસ', 'bleeding': 'રક્તસ્રાવ',
+      'bruising': 'ઘા', 'pale skin': 'નિસ્તેજ ત્વચા',
+      'rapid heartbeat': 'ઝડપી ધબકારા', 'irregular heartbeat': 'અનિયમિત ધબકારા'
+    }
+  },
+
+  // General medical terms
+  general: {
+    en: {
+      'treatment': 'Treatment', 'medication': 'Medication', 'diagnosis': 'Diagnosis',
+      'prevention': 'Prevention', 'recovery': 'Recovery', 'chronic': 'Chronic',
+      'acute': 'Acute', 'mild': 'Mild', 'moderate': 'Moderate', 'severe': 'Severe',
+      'curable': 'Curable', 'manageable': 'Manageable', 'rest': 'Rest',
+      'hydration': 'Hydration', 'diet': 'Diet', 'exercise': 'Exercise',
+      'therapy': 'Therapy', 'surgery': 'Surgery', 'consultation': 'Consultation',
+      'emergency': 'Emergency', 'doctor': 'Doctor', 'hospital': 'Hospital',
+      'clinic': 'Clinic', 'pharmacy': 'Pharmacy', 'prescription': 'Prescription',
+      'dosage': 'Dosage', 'side effects': 'Side Effects', 'allergy': 'Allergy',
+      'infection': 'Infection', 'inflammation': 'Inflammation', 'pain': 'Pain',
+      'relief': 'Relief', 'cure': 'Cure', 'healing': 'Healing'
+    },
+    hi: {
+      'treatment': 'उपचार', 'medication': 'दवा', 'diagnosis': 'निदान',
+      'prevention': 'रोकथाम', 'recovery': 'स्वस्थ होना', 'chronic': 'दीर्घकालिक',
+      'acute': 'तीव्र', 'mild': 'हल्का', 'moderate': 'मध्यम', 'severe': 'गंभीर',
+      'curable': 'इलाज योग्य', 'manageable': 'प्रबंधनीय', 'rest': 'आराम',
+      'hydration': 'जलयोजन', 'diet': 'आहार', 'exercise': 'व्यायाम',
+      'therapy': 'चिकित्सा', 'surgery': 'शल्य चिकित्सा', 'consultation': 'परामर्श',
+      'emergency': 'आपातकाल', 'doctor': 'डॉक्टर', 'hospital': 'अस्पताल',
+      'clinic': 'क्लिनिक', 'pharmacy': 'दवाखाना', 'prescription': 'नुस्खा',
+      'dosage': 'खुराक', 'side effects': 'दुष्प्रभाव', 'allergy': 'एलर्जी',
+      'infection': 'संक्रमण', 'inflammation': 'सूजन', 'pain': 'दर्द',
+      'relief': 'राहत', 'cure': 'इलाज', 'healing': 'उपचार'
+    },
+    te: {
+      'treatment': 'చికిత్స', 'medication': 'మందులు', 'diagnosis': 'రోగ నిర్ధారణ',
+      'prevention': 'నివారణ', 'recovery': 'కోలుకోవడం', 'chronic': 'దీర్ఘకాలిక',
+      'acute': 'తీవ్రమైన', 'mild': 'తేలికైన', 'moderate': 'మితమైన', 'severe': 'తీవ్రమైన',
+      'curable': 'నయం చేయదగిన', 'manageable': 'నిర్వహించదగిన', 'rest': 'విశ్రాంతి',
+      'hydration': 'నీటి సరఫరా', 'diet': 'ఆహారం', 'exercise': 'వ్యాయామం',
+      'therapy': 'చికిత్స', 'surgery': 'శస్త్రచికిత్స', 'consultation': 'సంప్రదింపులు',
+      'emergency': 'అత్యవసరం', 'doctor': 'వైద్యుడు', 'hospital': 'ఆసుపత్రి',
+      'clinic': 'క్లినిక్', 'pharmacy': 'మందుల దుకాణం', 'prescription': 'ప్రిస్క్రిప్షన్',
+      'dosage': 'మోతాదు', 'side effects': 'దుష్ప్రభావాలు', 'allergy': 'అలెర్జీ',
+      'infection': 'సంక్రమణ', 'inflammation': 'వాపు', 'pain': 'నొప్పి',
+      'relief': 'ఉపశమనం', 'cure': 'నివారణ', 'healing': 'స్వస్థత'
+    },
+    ta: {
+      'treatment': 'சிகிச்சை', 'medication': 'மருந்து', 'diagnosis': 'நோய் கண்டறிதல்',
+      'prevention': 'தடுப்பு', 'recovery': 'மீட்பு', 'chronic': 'நாள்பட்ட',
+      'acute': 'கடுமையான', 'mild': 'லேசான', 'moderate': 'மிதமான', 'severe': 'கடுமையான',
+      'curable': 'குணப்படுத்தக்கூடிய', 'manageable': 'நிர்வகிக்கக்கூடிய', 'rest': 'ஓய்வு',
+      'hydration': 'நீர்ச்சத்து', 'diet': 'உணவு', 'exercise': 'உடற்பயிற்சி',
+      'therapy': 'சிகிச்சை', 'surgery': 'அறுவை சிகிச்சை', 'consultation': 'ஆலோசனை',
+      'emergency': 'அவசரம்', 'doctor': 'மருத்துவர்', 'hospital': 'மருத்துவமனை',
+      'clinic': 'மருத்துவமனை', 'pharmacy': 'மருந்தகம்', 'prescription': 'மருந்துச் சீட்டு',
+      'dosage': 'அளவு', 'side effects': 'பக்க விளைவுகள்', 'allergy': 'ஒவ்வாமை',
+      'infection': 'தொற்று', 'inflammation': 'வீக்கம்', 'pain': 'வலி',
+      'relief': 'நிவாரணம்', 'cure': 'குணப்படுத்துதல்', 'healing': 'குணமாதல்'
+    },
+    bn: {
+      'treatment': 'চিকিৎসা', 'medication': 'ওষুধ', 'diagnosis': 'রোগ নির্ণয়',
+      'prevention': 'প্রতিরোধ', 'recovery': 'সুস্থতা', 'chronic': 'দীর্ঘস্থায়ী',
+      'acute': 'তীব্র', 'mild': 'হালকা', 'moderate': 'মাঝারি', 'severe': 'গুরুতর',
+      'curable': 'নিরাময়যোগ্য', 'manageable': 'পরিচালনাযোগ্য', 'rest': 'বিশ্রাম',
+      'hydration': 'জলয়োজন', 'diet': 'খাদ্য', 'exercise': 'ব্যায়াম',
+      'therapy': 'থেরাপি', 'surgery': 'অস্ত্রোপচার', 'consultation': 'পরামর্শ',
+      'emergency': 'জরুরি', 'doctor': 'ডাক্তার', 'hospital': 'হাসপাতাল',
+      'clinic': 'ক্লিনিক', 'pharmacy': 'ফার্মেসি', 'prescription': 'প্রেসক্রিপশন',
+      'dosage': 'ডোজ', 'side effects': 'পার্শ্ব প্রতিক্রিয়া', 'allergy': 'অ্যালার্জি',
+      'infection': 'সংক্রমণ', 'inflammation': 'প্রদাহ', 'pain': 'ব্যথা',
+      'relief': 'উপশম', 'cure': 'নিরাময়', 'healing': 'সুস্থতা'
+    },
+    mr: {
+      'treatment': 'उपचार', 'medication': 'औषध', 'diagnosis': 'निदान',
+      'prevention': 'प्रतिबंध', 'recovery': 'पुनर्प्राप्ती', 'chronic': 'दीर्घकालीन',
+      'acute': 'तीव्र', 'mild': 'सौम्य', 'moderate': 'मध्यम', 'severe': 'गंभीर',
+      'curable': 'बरा होण्यायोग्य', 'manageable': 'व्यवस्थापनयोग्य', 'rest': 'विश्रांती',
+      'hydration': 'जलयोजन', 'diet': 'आहार', 'exercise': 'व्यायाम',
+      'therapy': 'थेरपी', 'surgery': 'शस्त्रक्रिया', 'consultation': 'सल्लामसलत',
+      'emergency': 'आणीबाणी', 'doctor': 'डॉक्टर', 'hospital': 'रुग्णालय',
+      'clinic': 'दवाखाना', 'pharmacy': 'औषधालय', 'prescription': 'प्रिस्क्रिप्शन',
+      'dosage': 'डोस', 'side effects': 'दुष्परिणाम', 'allergy': 'ऍलर्जी',
+      'infection': 'संसर्ग', 'inflammation': 'दाह', 'pain': 'वेदना',
+      'relief': 'आराम', 'cure': 'उपचार', 'healing': 'बरे होणे'
+    },
+    gu: {
+      'treatment': 'સારવાર', 'medication': 'દવા', 'diagnosis': 'નિદાન',
+      'prevention': 'નિવારણ', 'recovery': 'પુનઃપ્રાપ્તિ', 'chronic': 'લાંબા ગાળાનું',
+      'acute': 'તીવ્ર', 'mild': 'હળવું', 'moderate': 'મધ્યમ', 'severe': 'ગંભીર',
+      'curable': 'સાધ્ય', 'manageable': 'સંચાલનીય', 'rest': 'આરામ',
+      'hydration': 'જલયોજન', 'diet': 'આહાર', 'exercise': 'કસરત',
+      'therapy': 'ઉપચાર', 'surgery': 'શસ્ત્રક્રિયા', 'consultation': 'સલાહ',
+      'emergency': 'કટોકટી', 'doctor': 'ડૉક્ટર', 'hospital': 'હોસ્પિટલ',
+      'clinic': 'ક્લિનિક', 'pharmacy': 'દવાખાનું', 'prescription': 'પ્રિસ્ક્રિપ્શન',
+      'dosage': 'માત્રા', 'side effects': 'આડઅસરો', 'allergy': 'એલર્જી',
+      'infection': 'ચેપ', 'inflammation': 'સોજો', 'pain': 'દુખાવો',
+      'relief': 'રાહત', 'cure': 'ઉપચાર', 'healing': 'સાજા થવું'
+    }
+  }
+};
+
+/**
+ * Get translation for a term
+ * @param {string} category - Category (diseases, symptoms, general)
+ * @param {string} term - Term to translate
+ * @param {string} targetLang - Target language code
+ * @returns {string|null} Translated term or null if not found
+ */
+function getDictionaryTranslation(category, term, targetLang) {
+  if (!TRANSLATION_DICTIONARY[category]) return null;
+  if (!TRANSLATION_DICTIONARY[category][targetLang]) return null;
+  
+  const normalizedTerm = term.toLowerCase().trim();
+  return TRANSLATION_DICTIONARY[category][targetLang][normalizedTerm] || null;
+}
+
+/**
+ * Get all translations for a category in a language
+ * @param {string} category - Category
+ * @param {string} lang - Language code
+ * @returns {Object} All translations for that category
+ */
+function getCategoryTranslations(category, lang) {
+  if (!TRANSLATION_DICTIONARY[category]) return {};
+  return TRANSLATION_DICTIONARY[category][lang] || {};
+}
+
+/**
+ * Check if dictionary has translation
+ * @param {string} category - Category
+ * @param {string} term - Term to check
+ * @param {string} targetLang - Target language code
+ * @returns {boolean}
+ */
+function hasDictionaryEntry(category, term, targetLang) {
+  return getDictionaryTranslation(category, term, targetLang) !== null;
+}
+
+  // Disease content (diet, medication, remedies, etc.)
+  diseaseContent: {
+    en: {
+      // Fever
+      'fluids, fruits, light meals': 'Fluids, fruits, light meals',
+      'paracetamol, rest': 'Paracetamol, rest',
+      '2–5 days': '2–5 days',
+      'hydration, tulsi tea, rest, sponge baths for high fever.': 'Hydration, tulsi tea, rest, sponge baths for high fever.',
+      
+      // Common Cold
+      'warm fluids, vitamin c': 'Warm fluids, vitamin C',
+      'antihistamines, decongestants': 'Antihistamines, decongestants',
+      '5–10 days': '5–10 days',
+      'honey-lemon, steam inhalation, ginger tea.': 'Honey-lemon, steam inhalation, ginger tea.',
+      
+      // Influenza
+      'soups, liquids': 'Soups, liquids',
+      'antivirals in selected cases': 'Antivirals in selected cases',
+      '7–14 days': '7–14 days',
+      'rest, elderberry (supportive), fluids.': 'Rest, elderberry (supportive), fluids.',
+      
+      // Diabetes
+      'low sugar, high fiber, whole grains': 'Low sugar, high fiber, whole grains',
+      'metformin, insulin': 'Metformin, Insulin',
+      'low-gi diet, cinnamon, fenugreek (with medical care).': 'Low-GI diet, cinnamon, fenugreek (with medical care).',
+      
+      // Hypertension
+      'low sodium, potassium-rich foods': 'Low sodium, potassium-rich foods',
+      'ace inhibitors, beta blockers': 'ACE inhibitors, beta blockers',
+      'garlic, hibiscus tea, celery seed infusion.': 'Garlic, hibiscus tea, celery seed infusion.',
+      
+      // Asthma
+      'avoid triggers, anti-inflammatory foods': 'Avoid triggers, anti-inflammatory foods',
+      'inhalers, corticosteroids': 'Inhalers, corticosteroids',
+      'breathing exercises (buteyko), turmeric in diet.': 'Breathing exercises (Buteyko), turmeric in diet.',
+      
+      // Pneumonia
+      'soups, protein': 'Soups, protein',
+      'antibiotics if bacterial': 'Antibiotics if bacterial',
+      'chest physiotherapy after acute phase, ginger soups.': 'Chest physiotherapy after acute phase, ginger soups.',
+      
+      // TB
+      'high-protein, calorie-dense': 'High-protein, calorie-dense',
+      'ripe therapy': 'RIPE therapy',
+      'nutrition support (medical therapy essential).': 'Nutrition support (medical therapy essential).',
+      
+      // COVID
+      'fluids, good nutrition': 'Fluids, good nutrition',
+      'supportive care': 'Supportive care',
+      'rest, hydration, graded rehab for long covid.': 'Rest, hydration, graded rehab for long COVID.',
+      
+      // Malaria
+      'hydration, iron as needed': 'Hydration, iron as needed',
+      'artemisinin-based therapy': 'Artemisinin-based therapy',
+      'prompt medical treatment; rest and fluids.': 'Prompt medical treatment; rest and fluids.',
+      
+      // Dengue
+      'fluids, ors': 'Fluids, ORS',
+      'oral rehydration, papaya leaf juice in some settings.': 'Oral rehydration, papaya leaf juice in some settings.',
+      
+      // Typhoid
+      'soft foods, fluids': 'Soft foods, fluids',
+      'antibiotics': 'Antibiotics',
+      'hydration, follow prescribed antibiotics.': 'Hydration, follow prescribed antibiotics.',
+      
+      // Hepatitis
+      'low alcohol, low fat': 'Low alcohol, low fat',
+      'antivirals if indicated': 'Antivirals if indicated',
+      'avoid alcohol; antioxidant-rich foods.': 'Avoid alcohol; antioxidant-rich foods.',
+      
+      // Arthritis
+      'omega-3, anti-inflammatory': 'Omega-3, anti-inflammatory',
+      'nsaids, physio': 'NSAIDs, physio',
+      'turmeric with black pepper, omega-3 supplements.': 'Turmeric with black pepper, omega-3 supplements.',
+      
+      // Anemia
+      'iron-rich foods + vitc': 'Iron-rich foods + VitC',
+      'iron supplements': 'Iron supplements',
+      '1–2 months': '1–2 months',
+      'iron-rich diet, beetroot, spinach with lemon.': 'Iron-rich diet, beetroot, spinach with lemon.',
+      
+      // Migraine
+      'avoid triggers': 'Avoid triggers',
+      'triptans, pain relief': 'Triptans, pain relief',
+      'magnesium, hydration, identify triggers.': 'Magnesium, hydration, identify triggers.',
+      
+      // Obesity
+      'low-calorie, high-fiber': 'Low-calorie, high-fiber',
+      'lifestyle, meds if needed': 'Lifestyle, meds if needed',
+      'dietary changes, regular exercise, portion control.': 'Dietary changes, regular exercise, portion control.',
+      
+      // Ulcer
+      'avoid spicy/acidic': 'Avoid spicy/acidic',
+      'ppi, antacids': 'PPI, antacids',
+      '2–6 weeks': '2–6 weeks',
+      'avoid nsaids, small bland meals.': 'Avoid NSAIDs, small bland meals.',
+      
+      // Epilepsy
+      'special diets sometimes': 'Special diets sometimes',
+      'anticonvulsants': 'Anticonvulsants',
+      'medication adherence; specialist diets in some cases.': 'Medication adherence; specialist diets in some cases.',
+      
+      // Appendicitis
+      'npo if suspected': 'NPO if suspected',
+      'surgery': 'Surgery',
+      'surgical treatment — seek emergency care.': 'Surgical treatment — seek emergency care.',
+      
+      // Depression
+      'omega-3 & b-vitamins': 'Omega-3 & B-vitamins',
+      'ssris + therapy': 'SSRIs + therapy',
+      'exercise, sunlight, therapy, social support.': 'Exercise, sunlight, therapy, social support.',
+      
+      // Anxiety
+      'avoid caffeine': 'Avoid caffeine',
+      'therapy/meds': 'Therapy/meds',
+      'breathing exercises, chamomile, therapy.': 'Breathing exercises, chamomile, therapy.',
+      
+      // Kidney Stones
+      'hydration, limit salt': 'Hydration, limit salt',
+      'pain meds, lithotripsy': 'Pain meds, lithotripsy',
+      'lemon water, hydration, reduce sodium.': 'Lemon water, hydration, reduce sodium.',
+      
+      // COPD
+      'high calorie if needed': 'High calorie if needed',
+      'bronchodilators': 'Bronchodilators',
+      'smoking cessation, pulmonary rehab.': 'Smoking cessation, pulmonary rehab.',
+      
+      // Alzheimer
+      'mediterranean diet': 'Mediterranean diet',
+      'symptomatic meds': 'Symptomatic meds',
+      'cognitive activities, mediterranean-style diet.': 'Cognitive activities, Mediterranean-style diet.',
+      
+      // Parkinson
+      'protein timing': 'Protein timing',
+      'levodopa': 'Levodopa',
+      'exercise, physical therapy, balance training.': 'Exercise, physical therapy, balance training.',
+      
+      // Cancer
+      'nutrition support': 'Nutrition support',
+      'surgery/chemo/radiation': 'Surgery/chemo/radiation',
+      'nutrition during therapy; supportive care.': 'Nutrition during therapy; supportive care.',
+      
+      // HIV
+      'good nutrition': 'Good nutrition',
+      'art': 'ART',
+      'art adherence and healthy diet.': 'ART adherence and healthy diet.',
+      
+      // Rabies
+      'post-exposure prophylaxis': 'Post-exposure prophylaxis',
+      'immediate pep after animal bite — urgent!': 'Immediate PEP after animal bite — urgent!',
+      
+      // Tetanus
+      'supportive': 'Supportive',
+      'antitoxin/antibiotics': 'Antitoxin/antibiotics',
+      'immunization and urgent care.': 'Immunization and urgent care.',
+      
+      // Acne
+      'low-sugar diet': 'Low-sugar diet',
+      'topical retinoids': 'Topical retinoids',
+      'aloe-vera, tea-tree oil, avoid oily foods.': 'Aloe-vera, tea-tree oil, avoid oily foods.',
+      
+      // Gout
+      'low-purine diet': 'Low-purine diet',
+      'nsaids, allopurinol': 'NSAIDs, allopurinol',
+      'medium': 'Medium',
+      'cherry juice, limit purine-rich foods.': 'Cherry juice, limit purine-rich foods.',
+      
+      // Insomnia
+      'light dinner, milk': 'Light dinner, milk',
+      'melatonin if prescribed': 'Melatonin if prescribed',
+      'chamomile tea, regular sleep schedule.': 'Chamomile tea, regular sleep schedule.',
+      
+      // Food Poisoning
+      'fluids, soft food': 'Fluids, soft food',
+      'ors, antibiotics if severe': 'ORS, antibiotics if severe',
+      'hydration, rest, light diet.': 'Hydration, rest, light diet.',
+      
+      // Allergy
+      'avoid trigger foods': 'Avoid trigger foods',
+      'honey (local), vitamin c, avoid triggers.': 'Honey (local), vitamin C, avoid triggers.',
+      
+      // Severity levels
+      'low–medium': 'Low–Medium',
+      'low': 'Low',
+      'moderate': 'Moderate',
+      'high': 'High',
+      'variable': 'Variable',
+      'critical': 'Critical',
+      
+      // Curability
+      'yes': 'Yes',
+      'no': 'No',
+      'manageable': 'Manageable',
+      'treatable': 'Treatable',
+      'sometimes': 'Sometimes',
+      'depends': 'Depends',
+      'preventable': 'Preventable',
+      'no (manageable)': 'No (manageable)',
+      
+      // Time periods
+      'ongoing': 'Ongoing',
+      'chronic': 'Chronic',
+      'weeks-months': 'Weeks-months',
+      '2–3 weeks': '2–3 weeks',
+      '1–2 weeks': '1–2 weeks',
+      '2–4 weeks': '2–4 weeks',
+      '6–9 months': '6–9 months',
+      'days-weeks': 'Days-weeks',
+      'weeks post-op': 'Weeks post-op',
+      'days': 'Days',
+      'weeks': 'Weeks',
+      'n/a': 'N/A'
+    },
+    hi: {
+      // Fever
+      'fluids, fruits, light meals': 'तरल पदार्थ, फल, हल्का भोजन',
+      'paracetamol, rest': 'पैरासिटामोल, आराम',
+      '2–5 days': '2-5 दिन',
+      'hydration, tulsi tea, rest, sponge baths for high fever.': 'जलयोजन, तुलसी की चाय, आराम, तेज बुखार के लिए स्पंज स्नान।',
+      
+      // Common Cold
+      'warm fluids, vitamin c': 'गर्म तरल पदार्थ, विटामिन सी',
+      'antihistamines, decongestants': 'एंटीहिस्टामाइन, डीकंजेस्टेंट',
+      '5–10 days': '5-10 दिन',
+      'honey-lemon, steam inhalation, ginger tea.': 'शहद-नींबू, भाप लेना, अदरक की चाय।',
+      
+      // Influenza
+      'soups, liquids': 'सूप, तरल पदार्थ',
+      'antivirals in selected cases': 'चयनित मामलों में एंटीवायरल',
+      '7–14 days': '7-14 दिन',
+      'rest, elderberry (supportive), fluids.': 'आराम, एल्डरबेरी (सहायक), तरल पदार्थ।',
+      
+      // Diabetes
+      'low sugar, high fiber, whole grains': 'कम चीनी, उच्च फाइबर, साबुत अनाज',
+      'metformin, insulin': 'मेटफॉर्मिन, इंसुलिन',
+      'low-gi diet, cinnamon, fenugreek (with medical care).': 'कम-जीआई आहार, दालचीनी, मेथी (चिकित्सा देखभाल के साथ)।',
+      
+      // Hypertension
+      'low sodium, potassium-rich foods': 'कम सोडियम, पोटेशियम युक्त खाद्य पदार्थ',
+      'ace inhibitors, beta blockers': 'एसीई अवरोधक, बीटा ब्लॉकर्स',
+      'garlic, hibiscus tea, celery seed infusion.': 'लहसुन, गुड़हल की चाय, अजवाइन के बीज का काढ़ा।',
+      
+      // Asthma
+      'avoid triggers, anti-inflammatory foods': 'ट्रिगर से बचें, सूजन-रोधी खाद्य पदार्थ',
+      'inhalers, corticosteroids': 'इनहेलर, कॉर्टिकोस्टेरॉइड',
+      'breathing exercises (buteyko), turmeric in diet.': 'श्वास व्यायाम (बुटेको), आहार में हल्दी।',
+      
+      // Pneumonia
+      'soups, protein': 'सूप, प्रोटीन',
+      'antibiotics if bacterial': 'बैक्टीरियल होने पर एंटीबायोटिक्स',
+      'chest physiotherapy after acute phase, ginger soups.': 'तीव्र चरण के बाद छाती फिजियोथेरेपी, अदरक का सूप।',
+      
+      // TB
+      'high-protein, calorie-dense': 'उच्च-प्रोटीन, कैलोरी-घना',
+      'ripe therapy': 'आरआईपीई थेरेपी',
+      'nutrition support (medical therapy essential).': 'पोषण सहायता (चिकित्सा उपचार आवश्यक)।',
+      
+      // COVID
+      'fluids, good nutrition': 'तरल पदार्थ, अच्छा पोषण',
+      'supportive care': 'सहायक देखभाल',
+      'rest, hydration, graded rehab for long covid.': 'आराम, जलयोजन, लंबे कोविड के लिए क्रमिक पुनर्वास।',
+      
+      // Malaria
+      'hydration, iron as needed': 'जलयोजन, आवश्यकतानुसार आयरन',
+      'artemisinin-based therapy': 'आर्टेमिसिनिन-आधारित चिकित्सा',
+      'prompt medical treatment; rest and fluids.': 'त्वरित चिकित्सा उपचार; आराम और तरल पदार्थ।',
+      
+      // Dengue
+      'fluids, ors': 'तरल पदार्थ, ओआरएस',
+      'oral rehydration, papaya leaf juice in some settings.': 'मौखिक पुनर्जलीकरण, कुछ स्थितियों में पपीते के पत्ते का रस।',
+      
+      // Typhoid
+      'soft foods, fluids': 'नरम खाद्य पदार्थ, तरल पदार्थ',
+      'antibiotics': 'एंटीबायोटिक्स',
+      'hydration, follow prescribed antibiotics.': 'जलयोजन, निर्धारित एंटीबायोटिक्स का पालन करें।',
+      
+      // Hepatitis
+      'low alcohol, low fat': 'कम शराब, कम वसा',
+      'antivirals if indicated': 'संकेत मिलने पर एंटीवायरल',
+      'avoid alcohol; antioxidant-rich foods.': 'शराब से बचें; एंटीऑक्सीडेंट युक्त खाद्य पदार्थ।',
+      
+      // Arthritis
+      'omega-3, anti-inflammatory': 'ओमेगा-3, सूजन-रोधी',
+      'nsaids, physio': 'एनएसएआईडी, फिजियो',
+      'turmeric with black pepper, omega-3 supplements.': 'काली मिर्च के साथ हल्दी, ओमेगा-3 सप्लीमेंट।',
+      
+      // Anemia
+      'iron-rich foods + vitc': 'आयरन युक्त खाद्य पदार्थ + विटामिन सी',
+      'iron supplements': 'आयरन सप्लीमेंट',
+      '1–2 months': '1-2 महीने',
+      'iron-rich diet, beetroot, spinach with lemon.': 'आयरन युक्त आहार, चुकंदर, नींबू के साथ पालक।',
+      
+      // Migraine
+      'avoid triggers': 'ट्रिगर से बचें',
+      'triptans, pain relief': 'ट्रिप्टान, दर्द निवारण',
+      'magnesium, hydration, identify triggers.': 'मैग्नीशियम, जलयोजन, ट्रिगर की पहचान करें।',
+      
+      // Obesity
+      'low-calorie, high-fiber': 'कम-कैलोरी, उच्च-फाइबर',
+      'lifestyle, meds if needed': 'जीवनशैली, आवश्यकता पड़ने पर दवाएं',
+      'dietary changes, regular exercise, portion control.': 'आहार परिवर्तन, नियमित व्यायाम, भाग नियंत्रण।',
+      
+      // Ulcer
+      'avoid spicy/acidic': 'मसालेदार/अम्लीय से बचें',
+      'ppi, antacids': 'पीपीआई, एंटासिड',
+      '2–6 weeks': '2-6 सप्ताह',
+      'avoid nsaids, small bland meals.': 'एनएसएआईडी से बचें, छोटे सादे भोजन।',
+      
+      // Epilepsy
+      'special diets sometimes': 'कभी-कभी विशेष आहार',
+      'anticonvulsants': 'एंटीकन्वल्सेंट',
+      'medication adherence; specialist diets in some cases.': 'दवा का पालन; कुछ मामलों में विशेषज्ञ आहार।',
+      
+      // Appendicitis
+      'npo if suspected': 'संदेह होने पर एनपीओ',
+      'surgery': 'शल्य चिकित्सा',
+      'surgical treatment — seek emergency care.': 'शल्य चिकित्सा उपचार — आपातकालीन देखभाल लें।',
+      
+      // Depression
+      'omega-3 & b-vitamins': 'ओमेगा-3 और बी-विटामिन',
+      'ssris + therapy': 'एसएसआरआई + थेरेपी',
+      'exercise, sunlight, therapy, social support.': 'व्यायाम, धूप, थेरेपी, सामाजिक समर्थन।',
+      
+      // Anxiety
+      'avoid caffeine': 'कैफीन से बचें',
+      'therapy/meds': 'थेरेपी/दवाएं',
+      'breathing exercises, chamomile, therapy.': 'श्वास व्यायाम, कैमोमाइल, थेरेपी।',
+      
+      // Kidney Stones
+      'hydration, limit salt': 'जलयोजन, नमक सीमित करें',
+      'pain meds, lithotripsy': 'दर्द की दवाएं, लिथोट्रिप्सी',
+      'lemon water, hydration, reduce sodium.': 'नींबू पानी, जलयोजन, सोडियम कम करें।',
+      
+      // COPD
+      'high calorie if needed': 'आवश्यकता पड़ने पर उच्च कैलोरी',
+      'bronchodilators': 'ब्रोन्कोडायलेटर',
+      'smoking cessation, pulmonary rehab.': 'धूम्रपान बंद करना, फुफ्फुसीय पुनर्वास।',
+      
+      // Alzheimer
+      'mediterranean diet': 'भूमध्यसागरीय आहार',
+      'symptomatic meds': 'लक्षणात्मक दवाएं',
+      'cognitive activities, mediterranean-style diet.': 'संज्ञानात्मक गतिविधियां, भूमध्यसागरीय शैली का आहार।',
+      
+      // Parkinson
+      'protein timing': 'प्रोटीन समय',
+      'levodopa': 'लेवोडोपा',
+      'exercise, physical therapy, balance training.': 'व्यायाम, भौतिक चिकित्सा, संतुलन प्रशिक्षण।',
+      
+      // Cancer
+      'nutrition support': 'पोषण सहायता',
+      'surgery/chemo/radiation': 'शल्य चिकित्सा/कीमो/विकिरण',
+      'nutrition during therapy; supportive care.': 'चिकित्सा के दौरान पोषण; सहायक देखभाल।',
+      
+      // HIV
+      'good nutrition': 'अच्छा पोषण',
+      'art': 'एआरटी',
+      'art adherence and healthy diet.': 'एआरटी का पालन और स्वस्थ आहार।',
+      
+      // Rabies
+      'post-exposure prophylaxis': 'एक्सपोजर के बाद प्रोफिलैक्सिस',
+      'immediate pep after animal bite — urgent!': 'जानवर के काटने के बाद तत्काल पीईपी — तत्काल!',
+      
+      // Tetanus
+      'supportive': 'सहायक',
+      'antitoxin/antibiotics': 'एंटीटॉक्सिन/एंटीबायोटिक्स',
+      'immunization and urgent care.': 'टीकाकरण और तत्काल देखभाल।',
+      
+      // Acne
+      'low-sugar diet': 'कम-चीनी आहार',
+      'topical retinoids': 'सामयिक रेटिनोइड्स',
+      'aloe-vera, tea-tree oil, avoid oily foods.': 'एलोवेरा, टी-ट्री ऑयल, तैलीय खाद्य पदार्थों से बचें।',
+      
+      // Gout
+      'low-purine diet': 'कम-प्यूरीन आहार',
+      'nsaids, allopurinol': 'एनएसएआईडी, एलोप्यूरिनॉल',
+      'medium': 'मध्यम',
+      'cherry juice, limit purine-rich foods.': 'चेरी का रस, प्यूरीन युक्त खाद्य पदार्थ सीमित करें।',
+      
+      // Insomnia
+      'light dinner, milk': 'हल्का रात का खाना, दूध',
+      'melatonin if prescribed': 'निर्धारित होने पर मेलाटोनिन',
+      'chamomile tea, regular sleep schedule.': 'कैमोमाइल चाय, नियमित नींद कार्यक्रम।',
+      
+      // Food Poisoning
+      'fluids, soft food': 'तरल पदार्थ, नरम भोजन',
+      'ors, antibiotics if severe': 'ओआरएस, गंभीर होने पर एंटीबायोटिक्स',
+      'hydration, rest, light diet.': 'जलयोजन, आराम, हल्का आहार।',
+      
+      // Allergy
+      'avoid trigger foods': 'ट्रिगर खाद्य पदार्थों से बचें',
+      'honey (local), vitamin c, avoid triggers.': 'शहद (स्थानीय), विटामिन सी, ट्रिगर से बचें।',
+      
+      // Severity levels
+      'low–medium': 'कम-मध्यम',
+      'low': 'कम',
+      'moderate': 'मध्यम',
+      'high': 'उच्च',
+      'variable': 'परिवर्तनशील',
+      'critical': 'गंभीर',
+      
+      // Curability
+      'yes': 'हाँ',
+      'no': 'नहीं',
+      'manageable': 'प्रबंधनीय',
+      'treatable': 'उपचार योग्य',
+      'sometimes': 'कभी-कभी',
+      'depends': 'निर्भर करता है',
+      'preventable': 'रोकथाम योग्य',
+      'no (manageable)': 'नहीं (प्रबंधनीय)',
+      
+      // Time periods
+      'ongoing': 'चल रहा',
+      'chronic': 'दीर्घकालिक',
+      'weeks-months': 'सप्ताह-महीने',
+      '2–3 weeks': '2-3 सप्ताह',
+      '1–2 weeks': '1-2 सप्ताह',
+      '2–4 weeks': '2-4 सप्ताह',
+      '6–9 months': '6-9 महीने',
+      'days-weeks': 'दिन-सप्ताह',
+      'weeks post-op': 'ऑपरेशन के बाद सप्ताह',
+      'days': 'दिन',
+      'weeks': 'सप्ताह',
+      'n/a': 'लागू नहीं'
+    },
+    te: {
+      // Fever
+      'fluids, fruits, light meals': 'ద్రవాలు, పండ్లు, తేలికపాటి భోజనం',
+      'paracetamol, rest': 'పారాసిటమాల్, విశ్రాంతి',
+      '2–5 days': '2-5 రోజులు',
+      'hydration, tulsi tea, rest, sponge baths for high fever.': 'నీటి సరఫరా, తులసి టీ, విశ్రాంతి, అధిక జ్వరానికి స్పాంజ్ స్నానాలు।',
+      
+      // Common Cold
+      'warm fluids, vitamin c': 'వెచ్చని ద్రవాలు, విటమిన్ సి',
+      'antihistamines, decongestants': 'యాంటిహిస్టామైన్స్, డీకంజెస్టెంట్స్',
+      '5–10 days': '5-10 రోజులు',
+      'honey-lemon, steam inhalation, ginger tea.': 'తేనె-నిమ్మకాయ, ఆవిరి పీల్చడం, అల్లం టీ।',
+      
+      // Influenza
+      'soups, liquids': 'సూప్‌లు, ద్రవాలు',
+      'antivirals in selected cases': 'ఎంపిక చేసిన కేసులలో యాంటీవైరల్స్',
+      '7–14 days': '7-14 రోజులు',
+      'rest, elderberry (supportive), fluids.': 'విశ్రాంతి, ఎల్డర్‌బెర్రీ (సహాయక), ద్రవాలు।',
+      
+      // Diabetes
+      'low sugar, high fiber, whole grains': 'తక్కువ చక్కెర, అధిక ఫైబర్, తృణధాన్యాలు',
+      'metformin, insulin': 'మెట్‌ఫార్మిన్, ఇన్సులిన్',
+      'low-gi diet, cinnamon, fenugreek (with medical care).': 'తక్కువ-జీఐ ఆహారం, దాల్చినచెక్క, మెంతులు (వైద్య సంరక్షణతో)।',
+      
+      // Hypertension
+      'low sodium, potassium-rich foods': 'తక్కువ సోడియం, పొటాషియం అధికంగా ఉన్న ఆహారాలు',
+      'ace inhibitors, beta blockers': 'ఏసీఈ ఇన్హిబిటర్స్, బీటా బ్లాకర్స్',
+      'garlic, hibiscus tea, celery seed infusion.': 'వెల్లుల్లి, హిబిస్కస్ టీ, సెలెరీ విత్తనాల కషాయం।',
+      
+      // Asthma
+      'avoid triggers, anti-inflammatory foods': 'ట్రిగ్గర్‌లను నివారించండి, శోథ నిరోధక ఆహారాలు',
+      'inhalers, corticosteroids': 'ఇన్హేలర్లు, కార్టికోస్టెరాయిడ్స్',
+      'breathing exercises (buteyko), turmeric in diet.': 'శ్వాస వ్యాయామాలు (బుటేకో), ఆహారంలో పసుపు।',
+      
+      // Pneumonia
+      'soups, protein': 'సూప్‌లు, ప్రోటీన్',
+      'antibiotics if bacterial': 'బ్యాక్టీరియా అయితే యాంటీబయాటిక్స్',
+      'chest physiotherapy after acute phase, ginger soups.': 'తీవ్ర దశ తర్వాత ఛాతీ ఫిజియోథెరపీ, అల్లం సూప్‌లు।',
+      
+      // TB
+      'high-protein, calorie-dense': 'అధిక-ప్రోటీన్, కేలరీ-దట్టమైన',
+      'ripe therapy': 'రైప్ థెరపీ',
+      'nutrition support (medical therapy essential).': 'పోషణ మద్దతు (వైద్య చికిత్స అవసరం)।',
+      
+      // COVID
+      'fluids, good nutrition': 'ద్రవాలు, మంచి పోషణ',
+      'supportive care': 'సహాయక సంరక్షణ',
+      'rest, hydration, graded rehab for long covid.': 'విశ్రాంతి, నీటి సరఫరా, దీర్ఘ కోవిడ్ కోసం క్రమబద్ధమైన పునరావాసం।',
+      
+      // Malaria
+      'hydration, iron as needed': 'నీటి సరఫరా, అవసరమైనప్పుడు ఇనుము',
+      'artemisinin-based therapy': 'ఆర్టెమిసినిన్-ఆధారిత చికిత్స',
+      'prompt medical treatment; rest and fluids.': 'త్వరిత వైద్య చికిత్స; విశ్రాంతి మరియు ద్రవాలు।',
+      
+      // Dengue
+      'fluids, ors': 'ద్రవాలు, ఓఆర్ఎస్',
+      'oral rehydration, papaya leaf juice in some settings.': 'నోటి ద్వారా పునర్జలీకరణ, కొన్ని పరిస్థితులలో బొప్పాయి ఆకు రసం।',
+      
+      // Typhoid
+      'soft foods, fluids': 'మృదువైన ఆహారాలు, ద్రవాలు',
+      'antibiotics': 'యాంటీబయాటిక్స్',
+      'hydration, follow prescribed antibiotics.': 'నీటి సరఫరా, సూచించిన యాంటీబయాటిక్స్ అనుసరించండి।',
+      
+      // Hepatitis
+      'low alcohol, low fat': 'తక్కువ మద్యం, తక్కువ కొవ్వు',
+      'antivirals if indicated': 'సూచించినట్లయితే యాంటీవైరల్స్',
+      'avoid alcohol; antioxidant-rich foods.': 'మద్యం నివారించండి; యాంటీఆక్సిడెంట్ అధికంగా ఉన్న ఆహారాలు।',
+      
+      // Arthritis
+      'omega-3, anti-inflammatory': 'ఒమేగా-3, శోథ నిరోధక',
+      'nsaids, physio': 'ఎన్ఎస్ఎఐడిఎస్, ఫిజియో',
+      'turmeric with black pepper, omega-3 supplements.': 'నల్ల మిరియాలతో పసుపు, ఒమేగా-3 సప్లిమెంట్స్।',
+      
+      // Anemia
+      'iron-rich foods + vitc': 'ఇనుము అధికంగా ఉన్న ఆహారాలు + విటమిన్ సి',
+      'iron supplements': 'ఇనుము సప్లిమెంట్స్',
+      '1–2 months': '1-2 నెలలు',
+      'iron-rich diet, beetroot, spinach with lemon.': 'ఇనుము అధికంగా ఉన్న ఆహారం, బీట్‌రూట్, నిమ్మకాయతో పాలకూర।',
+      
+      // Migraine
+      'avoid triggers': 'ట్రిగ్గర్‌లను నివారించండి',
+      'triptans, pain relief': 'ట్రిప్టాన్స్, నొప్పి ఉపశమనం',
+      'magnesium, hydration, identify triggers.': 'మెగ్నీషియం, నీటి సరఫరా, ట్రిగ్గర్‌లను గుర్తించండి।',
+      
+      // Obesity
+      'low-calorie, high-fiber': 'తక్కువ-కేలరీ, అధిక-ఫైబర్',
+      'lifestyle, meds if needed': 'జీవనశైలి, అవసరమైతే మందులు',
+      'dietary changes, regular exercise, portion control.': 'ఆహార మార్పులు, క్రమం తప్పకుండా వ్యాయామం, భాగ నియంత్రణ।',
+      
+      // Ulcer
+      'avoid spicy/acidic': 'మసాలా/ఆమ్ల నివారించండి',
+      'ppi, antacids': 'పిపిఐ, యాంటాసిడ్స్',
+      '2–6 weeks': '2-6 వారాలు',
+      'avoid nsaids, small bland meals.': 'ఎన్ఎస్ఎఐడిఎస్ నివారించండి, చిన్న సాధారణ భోజనం।',
+      
+      // Epilepsy
+      'special diets sometimes': 'కొన్నిసార్లు ప్రత్యేక ఆహారాలు',
+      'anticonvulsants': 'యాంటీకన్వల్సెంట్స్',
+      'medication adherence; specialist diets in some cases.': 'మందుల పాటింపు; కొన్ని సందర్భాల్లో ప్రత్యేక ఆహారాలు।',
+      
+      // Appendicitis
+      'npo if suspected': 'అనుమానం ఉంటే ఎన్పిఓ',
+      'surgery': 'శస్త్రచికిత్స',
+      'surgical treatment — seek emergency care.': 'శస్త్రచికిత్స చికిత్స — అత్యవసర సంరక్షణ పొందండి।',
+      
+      // Depression
+      'omega-3 & b-vitamins': 'ఒమేగా-3 & బి-విటమిన్లు',
+      'ssris + therapy': 'ఎస్ఎస్ఆర్ఐఎస్ + థెరపీ',
+      'exercise, sunlight, therapy, social support.': 'వ్యాయామం, సూర్యరశ్మి, థెరపీ, సామాజిక మద్దతు।',
+      
+      // Anxiety
+      'avoid caffeine': 'కెఫీన్ నివారించండి',
+      'therapy/meds': 'థెరపీ/మందులు',
+      'breathing exercises, chamomile, therapy.': 'శ్వాస వ్యాయామాలు, కెమోమైల్, థెరపీ।',
+      
+      // Kidney Stones
+      'hydration, limit salt': 'నీటి సరఫరా, ఉప్పు పరిమితం చేయండి',
+      'pain meds, lithotripsy': 'నొప్పి మందులు, లిథోట్రిప్సీ',
+      'lemon water, hydration, reduce sodium.': 'నిమ్మ నీరు, నీటి సరఫరా, సోడియం తగ్గించండి।',
+      
+      // COPD
+      'high calorie if needed': 'అవసరమైతే అధిక కేలరీ',
+      'bronchodilators': 'బ్రోంకోడైలేటర్స్',
+      'smoking cessation, pulmonary rehab.': 'ధూమపానం మానేయడం, ఊపిరితిత్తుల పునరావాసం।',
+      
+      // Alzheimer
+      'mediterranean diet': 'మెడిటరేనియన్ ఆహారం',
+      'symptomatic meds': 'లక్షణ మందులు',
+      'cognitive activities, mediterranean-style diet.': 'అభిజ్ఞా కార్యకలాపాలు, మెడిటరేనియన్-శైలి ఆహారం।',
+      
+      // Parkinson
+      'protein timing': 'ప్రోటీన్ సమయం',
+      'levodopa': 'లెవోడోపా',
+      'exercise, physical therapy, balance training.': 'వ్యాయామం, భౌతిక చికిత్స, సమతుల్య శిక్షణ।',
+      
+      // Cancer
+      'nutrition support': 'పోషణ మద్దతు',
+      'surgery/chemo/radiation': 'శస్త్రచికిత్స/కీమో/రేడియేషన్',
+      'nutrition during therapy; supportive care.': 'చికిత్స సమయంలో పోషణ; సహాయక సంరక్షణ।',
+      
+      // HIV
+      'good nutrition': 'మంచి పోషణ',
+      'art': 'ఎఆర్టీ',
+      'art adherence and healthy diet.': 'ఎఆర్టీ పాటింపు మరియు ఆరోగ్యకరమైన ఆహారం।',
+      
+      // Rabies
+      'post-exposure prophylaxis': 'బహిర్గతం తర్వాత ప్రొఫిలాక్సిస్',
+      'immediate pep after animal bite — urgent!': 'జంతువు కాటు తర్వాత తక్షణ పిఇపి — అత్యవసరం!',
+      
+      // Tetanus
+      'supportive': 'సహాయక',
+      'antitoxin/antibiotics': 'యాంటీటాక్సిన్/యాంటీబయాటిక్స్',
+      'immunization and urgent care.': 'రోగనిరోధక శక్తి మరియు అత్యవసర సంరక్షణ।',
+      
+      // Acne
+      'low-sugar diet': 'తక్కువ-చక్కెర ఆహారం',
+      'topical retinoids': 'సమయిక రెటినాయిడ్స్',
+      'aloe-vera, tea-tree oil, avoid oily foods.': 'కలబంద, టీ-ట్రీ ఆయిల్, నూనె ఆహారాలను నివారించండి।',
+      
+      // Gout
+      'low-purine diet': 'తక్కువ-ప్యూరిన్ ఆహారం',
+      'nsaids, allopurinol': 'ఎన్ఎస్ఎఐడిఎస్, అలోప్యూరినాల్',
+      'medium': 'మధ్యస్థం',
+      'cherry juice, limit purine-rich foods.': 'చెర్రీ రసం, ప్యూరిన్ అధికంగా ఉన్న ఆహారాలను పరిమితం చేయండి।',
+      
+      // Insomnia
+      'light dinner, milk': 'తేలికపాటి రాత్రి భోజనం, పాలు',
+      'melatonin if prescribed': 'సూచించినట్లయితే మెలటోనిన్',
+      'chamomile tea, regular sleep schedule.': 'కెమోమైల్ టీ, క్రమం తప్పకుండా నిద్ర షెడ్యూల్।',
+      
+      // Food Poisoning
+      'fluids, soft food': 'ద్రవాలు, మృదువైన ఆహారం',
+      'ors, antibiotics if severe': 'ఓఆర్ఎస్, తీవ్రంగా ఉంటే యాంటీబయాటిక్స్',
+      'hydration, rest, light diet.': 'నీటి సరఫరా, విశ్రాంతి, తేలికపాటి ఆహారం।',
+      
+      // Allergy
+      'avoid trigger foods': 'ట్రిగ్గర్ ఆహారాలను నివారించండి',
+      'honey (local), vitamin c, avoid triggers.': 'తేనె (స్థానిక), విటమిన్ సి, ట్రిగ్గర్‌లను నివారించండి।',
+      
+      // Severity levels
+      'low–medium': 'తక్కువ-మధ్యస్థం',
+      'low': 'తక్కువ',
+      'moderate': 'మితమైన',
+      'high': 'అధికం',
+      'variable': 'మారుతూ ఉంటుంది',
+      'critical': 'క్లిష్టమైన',
+      
+      // Curability
+      'yes': 'అవును',
+      'no': 'కాదు',
+      'manageable': 'నిర్వహించదగిన',
+      'treatable': 'చికిత్స చేయదగిన',
+      'sometimes': 'కొన్నిసార్లు',
+      'depends': 'ఆధారపడి ఉంటుంది',
+      'preventable': 'నివారించదగిన',
+      'no (manageable)': 'కాదు (నిర్వహించదగిన)',
+      
+      // Time periods
+      'ongoing': 'కొనసాగుతోంది',
+      'chronic': 'దీర్ఘకాలిక',
+      'weeks-months': 'వారాలు-నెలలు',
+      '2–3 weeks': '2-3 వారాలు',
+      '1–2 weeks': '1-2 వారాలు',
+      '2–4 weeks': '2-4 వారాలు',
+      '6–9 months': '6-9 నెలలు',
+      'days-weeks': 'రోజులు-వారాలు',
+      'weeks post-op': 'శస్త్రచికిత్స తర్వాత వారాలు',
+      'days': 'రోజులు',
+      'weeks': 'వారాలు',
+      'n/a': 'వర్తించదు'
+    },
+    ta: {
+      // Fever
+      'fluids, fruits, light meals': 'திரவங்கள், பழங்கள், லேசான உணவு',
+      'paracetamol, rest': 'பாராசிட்டமால், ஓய்வு',
+      '2–5 days': '2-5 நாட்கள்',
+      'hydration, tulsi tea, rest, sponge baths for high fever.': 'நீர்ச்சத்து, துளசி தேநீர், ஓய்வு, அதிக காய்ச்சலுக்கு ஸ்பாஞ்ச் குளியல்.',
+      
+      // Common Cold
+      'warm fluids, vitamin c': 'சூடான திரவங்கள், வைட்டமின் சி',
+      'antihistamines, decongestants': 'ஆண்டிஹிஸ்டமின்கள், டீகன்ஜெஸ்டன்ட்கள்',
+      '5–10 days': '5-10 நாட்கள்',
+      'honey-lemon, steam inhalation, ginger tea.': 'தேன்-எலுமிச்சை, நீராவி உள்ளிழுத்தல், இஞ்சி தேநீர்.',
+      
+      // Severity levels
+      'low–medium': 'குறைவு-நடுத்தரம்',
+      'low': 'குறைவு',
+      'moderate': 'மிதமான',
+      'high': 'அதிகம்',
+      'variable': 'மாறுபடும்',
+      'critical': 'முக்கியமான',
+      
+      // Curability
+      'yes': 'ஆம்',
+      'no': 'இல்லை',
+      'manageable': 'நிர்வகிக்கக்கூடிய',
+      'treatable': 'சிகிச்சையளிக்கக்கூடிய',
+      'sometimes': 'சில நேரங்களில்',
+      'depends': 'சார்ந்துள்ளது',
+      'preventable': 'தடுக்கக்கூடிய',
+      'no (manageable)': 'இல்லை (நிர்வகிக்கக்கூடிய)',
+      
+      // Time periods
+      'ongoing': 'தொடர்ந்து',
+      'chronic': 'நாள்பட்ட',
+      'weeks-months': 'வாரங்கள்-மாதங்கள்',
+      '2–3 weeks': '2-3 வாரங்கள்',
+      '1–2 weeks': '1-2 வாரங்கள்',
+      '2–4 weeks': '2-4 வாரங்கள்',
+      '6–9 months': '6-9 மாதங்கள்',
+      'days-weeks': 'நாட்கள்-வாரங்கள்',
+      'weeks post-op': 'அறுவை சிகிச்சைக்குப் பின் வாரங்கள்',
+      'days': 'நாட்கள்',
+      'weeks': 'வாரங்கள்',
+      'n/a': 'பொருந்தாது'
+    },
+    bn: {
+      // Fever
+      'fluids, fruits, light meals': 'তরল, ফল, হালকা খাবার',
+      'paracetamol, rest': 'প্যারাসিটামল, বিশ্রাম',
+      '2–5 days': '২-৫ দিন',
+      'hydration, tulsi tea, rest, sponge baths for high fever.': 'জলয়োজন, তুলসী চা, বিশ্রাম, উচ্চ জ্বরের জন্য স্পঞ্জ স্নান।',
+      
+      // Common Cold
+      'warm fluids, vitamin c': 'গরম তরল, ভিটামিন সি',
+      'antihistamines, decongestants': 'অ্যান্টিহিস্টামিন, ডিকনজেস্ট্যান্ট',
+      '5–10 days': '৫-১০ দিন',
+      'honey-lemon, steam inhalation, ginger tea.': 'মধু-লেবু, বাষ্প শ্বাস, আদা চা।',
+      
+      // Severity levels
+      'low–medium': 'কম-মাঝারি',
+      'low': 'কম',
+      'moderate': 'মাঝারি',
+      'high': 'উচ্চ',
+      'variable': 'পরিবর্তনশীল',
+      'critical': 'সংকটজনক',
+      
+      // Curability
+      'yes': 'হ্যাঁ',
+      'no': 'না',
+      'manageable': 'পরিচালনাযোগ্য',
+      'treatable': 'চিকিৎসাযোগ্য',
+      'sometimes': 'কখনও কখনও',
+      'depends': 'নির্ভর করে',
+      'preventable': 'প্রতিরোধযোগ্য',
+      'no (manageable)': 'না (পরিচালনাযোগ্য)',
+      
+      // Time periods
+      'ongoing': 'চলমান',
+      'chronic': 'দীর্ঘস্থায়ী',
+      'weeks-months': 'সপ্তাহ-মাস',
+      '2–3 weeks': '২-৩ সপ্তাহ',
+      '1–2 weeks': '১-২ সপ্তাহ',
+      '2–4 weeks': '২-৪ সপ্তাহ',
+      '6–9 months': '৬-৯ মাস',
+      'days-weeks': 'দিন-সপ্তাহ',
+      'weeks post-op': 'অপারেশনের পরে সপ্তাহ',
+      'days': 'দিন',
+      'weeks': 'সপ্তাহ',
+      'n/a': 'প্রযোজ্য নয়'
+    },
+    mr: {
+      // Fever
+      'fluids, fruits, light meals': 'द्रवपदार्थ, फळे, हलके जेवण',
+      'paracetamol, rest': 'पॅरासिटामॉल, विश्रांती',
+      '2–5 days': '२-५ दिवस',
+      'hydration, tulsi tea, rest, sponge baths for high fever.': 'जलयोजन, तुळशी चहा, विश्रांती, उच्च तापासाठी स्पंज स्नान।',
+      
+      // Common Cold
+      'warm fluids, vitamin c': 'कोमट द्रवपदार्थ, व्हिटॅमिन सी',
+      'antihistamines, decongestants': 'अँटिहिस्टामाइन्स, डिकंजेस्टंट्स',
+      '5–10 days': '५-१० दिवस',
+      'honey-lemon, steam inhalation, ginger tea.': 'मध-लिंबू, वाफ घेणे, आले चहा।',
+      
+      // Severity levels
+      'low–medium': 'कमी-मध्यम',
+      'low': 'कमी',
+      'moderate': 'मध्यम',
+      'high': 'उच्च',
+      'variable': 'बदलणारे',
+      'critical': 'गंभीर',
+      
+      // Curability
+      'yes': 'होय',
+      'no': 'नाही',
+      'manageable': 'व्यवस्थापनयोग्य',
+      'treatable': 'उपचार करण्यायोग्य',
+      'sometimes': 'कधीकधी',
+      'depends': 'अवलंबून',
+      'preventable': 'प्रतिबंध करण्यायोग्य',
+      'no (manageable)': 'नाही (व्यवस्थापनयोग्य)',
+      
+      // Time periods
+      'ongoing': 'सुरू',
+      'chronic': 'दीर्घकालीन',
+      'weeks-months': 'आठवडे-महिने',
+      '2–3 weeks': '२-३ आठवडे',
+      '1–2 weeks': '१-२ आठवडे',
+      '2–4 weeks': '२-४ आठवडे',
+      '6–9 months': '६-९ महिने',
+      'days-weeks': 'दिवस-आठवडे',
+      'weeks post-op': 'ऑपरेशननंतर आठवडे',
+      'days': 'दिवस',
+      'weeks': 'आठवडे',
+      'n/a': 'लागू नाही'
+    },
+    gu: {
+      // Fever
+      'fluids, fruits, light meals': 'પ્રવાહી, ફળો, હળવું ભોજન',
+      'paracetamol, rest': 'પેરાસિટામોલ, આરામ',
+      '2–5 days': '૨-૫ દિવસ',
+      'hydration, tulsi tea, rest, sponge baths for high fever.': 'જલયોજન, તુલસી ચા, આરામ, ઊંચા તાવ માટે સ્પોન્જ સ્નાન.',
+      
+      // Common Cold
+      'warm fluids, vitamin c': 'ગરમ પ્રવાહી, વિટામિન સી',
+      'antihistamines, decongestants': 'એન્ટિહિસ્ટામાઇન્સ, ડીકન્જેસ્ટન્ટ્સ',
+      '5–10 days': '૫-૧૦ દિવસ',
+      'honey-lemon, steam inhalation, ginger tea.': 'મધ-લીંબુ, વરાળ શ્વાસ, આદુ ચા.',
+      
+      // Severity levels
+      'low–medium': 'ઓછું-મધ્યમ',
+      'low': 'ઓછું',
+      'moderate': 'મધ્યમ',
+      'high': 'ઊંચું',
+      'variable': 'ચલ',
+      'critical': 'ગંભીર',
+      
+      // Curability
+      'yes': 'હા',
+      'no': 'ના',
+      'manageable': 'સંચાલનીય',
+      'treatable': 'સારવાર યોગ્ય',
+      'sometimes': 'કેટલીકવાર',
+      'depends': 'આધાર રાખે છે',
+      'preventable': 'અટકાવી શકાય તેવું',
+      'no (manageable)': 'ના (સંચાલનીય)',
+      
+      // Time periods
+      'ongoing': 'ચાલુ',
+      'chronic': 'લાંબા ગાળાનું',
+      'weeks-months': 'અઠવાડિયા-મહિનાઓ',
+      '2–3 weeks': '૨-૩ અઠવાડિયા',
+      '1–2 weeks': '૧-૨ અઠવાડિયા',
+      '2–4 weeks': '૨-૪ અઠવાડિયા',
+      '6–9 months': '૬-૯ મહિના',
+      'days-weeks': 'દિવસો-અઠવાડિયા',
+      'weeks post-op': 'ઓપરેશન પછી અઠવાડિયા',
+      'days': 'દિવસો',
+      'weeks': 'અઠવાડિયા',
+      'n/a': 'લાગુ નથી'
+    }
+  }
+};
+
+// Export for use in other modules
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    TRANSLATION_DICTIONARY,
+    getDictionaryTranslation,
+    getCategoryTranslations,
+    hasDictionaryEntry
+  };
+}
