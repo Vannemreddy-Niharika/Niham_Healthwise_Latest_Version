@@ -1,0 +1,392 @@
+/* ====================================== */
+/* Login Page Styles                      */
+/* ====================================== */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a1628 0%, #1a2332 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: rgba(26, 35, 50, 0.95);
+  border: 1px solid rgba(0, 255, 195, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.login-logo {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.login-card h1 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.login-card .subtitle {
+  text-align: center;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-section h2 {
+  color: #cfe;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.info-message {
+  background: rgba(0, 255, 195, 0.1);
+  border: 1px solid rgba(0, 255, 195, 0.3);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.info-message p {
+  color: #cfe;
+  margin: 0;
+  font-size: 14px;
+}
+
+.create-account-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.create-account-link:hover {
+  color: #00a8ff;
+  text-decoration: underline;
+}
+
+.form-description {
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: #08131a;
+  border: 1px solid rgba(0, 255, 195, 0.3);
+  border-radius: 8px;
+  color: #cfe;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 255, 195, 0.1);
+}
+
+/* Prevent invalid styling while typing */
+.form-group input:invalid,
+.form-group select:invalid,
+.form-group textarea:invalid {
+  border-color: rgba(0, 255, 195, 0.3);
+  box-shadow: none;
+}
+
+/* Only show invalid state after form submission attempt */
+.form-group input.was-validated:invalid,
+.form-group select.was-validated:invalid,
+.form-group textarea.was-validated:invalid {
+  border-color: #ff6b6b;
+}
+
+/* Valid state */
+.form-group input:valid:not(:placeholder-shown),
+.form-group select:valid:not([value=""]),
+.form-group textarea:valid:not(:placeholder-shown) {
+  border-color: rgba(0, 255, 195, 0.5);
+}
+
+.form-group textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #00ffc3, #00a8ff);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 255, 195, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.switch-form {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.switch-form a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.switch-form a:hover {
+  text-decoration: underline;
+}
+
+/* Health Score Display */
+.health-score-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.score-circle {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.score-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.score-max {
+  font-size: 24px;
+  color: var(--muted);
+}
+
+.score-status {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.score-status.excellent {
+  color: #00ff88;
+}
+
+.score-status.good {
+  color: #00ffc3;
+}
+
+.score-status.fair {
+  color: #ffa500;
+}
+
+.score-status.poor {
+  color: #ff6b6b;
+}
+
+/* Health Metrics */
+.health-metrics {
+  background: rgba(0, 255, 195, 0.05);
+  border: 1px solid rgba(0, 255, 195, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.health-metrics h3 {
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metric-item:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.metric-value {
+  color: #cfe;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.metric-status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.metric-status.normal {
+  background: rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+}
+
+.metric-status.warning {
+  background: rgba(255, 165, 0, 0.2);
+  color: #ffa500;
+}
+
+.metric-status.danger {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+}
+
+/* Recommendations */
+.recommendations {
+  background: rgba(0, 168, 255, 0.05);
+  border: 1px solid rgba(0, 168, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.recommendations h3 {
+  color: #00a8ff;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recommendations li {
+  padding: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #cfe;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.recommendations li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .score-value {
+    font-size: 36px;
+  }
+
+  .score-max {
+    font-size: 18px;
+  }
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(0, 255, 195, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--accent);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - NIHAM HealthWise</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <img src="NIHAM_Logo.png" alt="NIHAM Logo" class="login-logo">
+      <h1>NIHAM HealthWise</h1>
+      <p class="subtitle">Offline AI Health Assistant for Rural India</p>
+
+      <!-- Login Form -->
+      <div id="loginForm" class="form-section active">
+        <h2>Welcome Back</h2>
+        <div class="info-message" id="firstTimeMessage">
+          <p>👋 First time here? <a href="#" class="create-account-link">Create a new account</a> to get started!</p>
+        </div>
+        <form id="loginFormElement">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required minlength="6" placeholder="Enter your password">
+          </div>
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+        <p class="switch-form">Don't have an account? <a href="#" id="showSignup">Sign Up</a></p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signupForm" class="form-section">
+        <h2>Create Account</h2>
+        <form id="signupFormElement">
+          <div class="form-group">
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" required placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password (min 6 characters)</label>
+            <input type="password" id="signupPassword" required minlength="6" placeholder="Create a password">
+          </div>
+          <button type="submit" class="btn-primary">Sign Up</button>
+        </form>
+        <p class="switch-form">Already have an account? <a href="#" id="showLogin">Login</a></p>
+      </div>
+
+      <!-- Health Profile Form -->
+      <div id="healthProfileForm" class="form-section">
+        <h2>Complete Your Health Profile</h2>
+        <p class="form-description">Help us calculate your personalized health score</p>
+        <form id="healthProfileFormElement">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" id="age" required min="1" max="120" placeholder="Your age">
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="height">Height (cm)</label>
+              <input type="number" id="height" required min="50" max="250" placeholder="Height in cm">
+            </div>
+            <div class="form-group">
+              <label for="weight">Weight (kg)</label>
+              <input type="number" id="weight" required min="20" max="300" placeholder="Weight in kg">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="bloodPressure">Blood Pressure (systolic/diastolic)</label>
+            <input type="text" id="bloodPressure" placeholder="e.g., 120/80" pattern="\d{2,3}/\d{2,3}">
+          </div>
+
+          <div class="form-group">
+            <label for="bloodSugar">Blood Sugar Level (mg/dL)</label>
+            <input type="number" id="bloodSugar" min="50" max="500" placeholder="Fasting blood sugar">
+          </div>
+
+          <div class="form-group">
+            <label for="exerciseFrequency">Exercise Frequency</label>
+            <select id="exerciseFrequency" required>
+              <option value="">Select</option>
+              <option value="none">None</option>
+              <option value="1-2">1-2 times per week</option>
+              <option value="3-4">3-4 times per week</option>
+              <option value="5+">5+ times per week</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="smokingStatus">Smoking Status</label>
+            <select id="smokingStatus" required>
+              <option value="">Select</option>
+              <option value="never">Never</option>
+              <option value="former">Former smoker</option>
+              <option value="current">Current smoker</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="alcoholConsumption">Alcohol Consumption</label>
+            <select id="alcoholConsumption" required>
+              <option value="">Select</option>
+              <option value="none">None</option>
+              <option value="occasional">Occasional</option>
+              <option value="moderate">Moderate</option>
+              <option value="heavy">Heavy</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sleepHours">Average Sleep Hours</label>
+            <input type="number" id="sleepHours" required min="0" max="24" step="0.5" placeholder="Hours per night">
+          </div>
+
+          <div class="form-group">
+            <label for="chronicConditions">Chronic Conditions (if any)</label>
+            <textarea id="chronicConditions" rows="3" placeholder="e.g., Diabetes, Hypertension, Asthma"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Calculate Health Score</button>
+        </form>
+      </div>
+
+      <!-- Health Score Display -->
+      <div id="healthScoreDisplay" class="form-section">
+        <h2>Your Health Score</h2>
+        <div class="health-score-container">
+          <div class="score-circle">
+            <svg width="200" height="200">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="#1a2332" stroke-width="10"/>
+              <circle id="scoreCircle" cx="100" cy="100" r="90" fill="none" stroke="#00ffc3" stroke-width="10" 
+                      stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)"/>
+            </svg>
+            <div class="score-value">
+              <span id="scoreNumber">0</span>
+              <span class="score-max">/100</span>
+            </div>
+          </div>
+          <div class="score-status" id="scoreStatus">Calculating...</div>
+        </div>
+
+        <div class="health-metrics">
+          <h3>Health Metrics</h3>
+          <div class="metric-item">
+            <span class="metric-label">BMI:</span>
+            <span class="metric-value" id="bmiValue">-</span>
+            <span class="metric-status" id="bmiStatus"></span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">Blood Pressure:</span>
+            <span class="metric-value" id="bpValue">-</span>
+            <span class="metric-status" id="bpStatus"></span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">Blood Sugar:</span>
+            <span class="metric-value" id="bsValue">-</span>
+            <span class="metric-status" id="bsStatus"></span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">Lifestyle Score:</span>
+            <span class="metric-value" id="lifestyleValue">-</span>
+            <span class="metric-status" id="lifestyleStatus"></span>
+          </div>
+        </div>
+
+        <div class="recommendations" id="recommendations">
+          <h3>Recommendations</h3>
+          <ul id="recommendationsList"></ul>
+        </div>
+
+        <button class="btn-primary" onclick="window.location.href='index.html'">Continue to Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/utils/utilities.js"></script>
+  <script src="js/features/login.js"></script>
+</body>
+</html>

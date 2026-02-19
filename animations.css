@@ -1,0 +1,270 @@
+/* ====================================== */
+/* NIHAM HealthWise - Animations          */
+/* ====================================== */
+
+/* ======== Intro Page ======== */
+.intro-page {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #00171f 0%, #000910 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  animation: fadeOutIntro 4s ease 3.5s forwards;
+}
+
+.intro-screen {
+  text-align: center;
+  color: #00ffc3;
+  animation: fadeInIntro 1.5s ease forwards;
+}
+
+.intro-logo {
+  width: 150px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px #00ffc3);
+  animation: pulseIntro 2s infinite ease-in-out;
+}
+
+.intro-title {
+  font-size: 2.5em;
+  color: #00ffc3;
+  text-shadow: 0 0 25px #00ffc3;
+  opacity: 0;
+  animation: fadeInUp 2s ease 0.5s forwards;
+}
+
+.intro-tagline {
+  color: #aaffff;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeInUp 2s ease 1.2s forwards;
+}
+
+@keyframes fadeInIntro {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseIntro {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px #00ffc3);
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 40px #00ffc3);
+  }
+}
+
+@keyframes fadeOutIntro {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ======== Animated Background ======== */
+.animated-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, #01161f, #000810 80%);
+  overflow: hidden;
+  z-index: -2;
+}
+
+/* Floating glowing particles */
+.particles::before,
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 195, 0.12) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: moveDots 80s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes moveDots {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-80px, -80px);
+  }
+}
+
+/* Floating DNA double helix animation */
+.dna-animation {
+  position: absolute;
+  width: 180px;
+  height: 400px;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(to bottom, transparent, transparent 20px, rgba(0, 255, 195, 0.5) 22px);
+  mask: radial-gradient(circle, transparent 15%, black 16%);
+  animation: floatDNA 8s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px #00ffc3);
+}
+
+@keyframes floatDNA {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-48%) rotate(360deg);
+  }
+}
+
+/* Animated heartbeat line */
+.heartbeat {
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffc3, #00aaff, #00ffc3);
+  background-size: 300% 100%;
+  animation: heartbeatPulse 2.5s linear infinite;
+  filter: drop-shadow(0 0 8px #00ffc3);
+}
+
+@keyframes heartbeatPulse {
+  0%,
+  100% {
+    background-position: 0 0;
+    height: 2px;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 100% 0;
+    height: 4px;
+    opacity: 1;
+  }
+}
+
+/* ======== Home Content ======== */
+.home-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.hero-logo {
+  width: 150px;
+  margin-bottom: 20px;
+  animation: pulseGlow 2s infinite ease-in-out;
+  filter: drop-shadow(0 0 30px #00ffc3);
+}
+
+.hero-title {
+  font-size: 3em;
+  color: #00ffc3;
+  font-weight: bold;
+  text-shadow: 0 0 20px #00ffc3;
+}
+
+.hero-subtitle {
+  color: #b8ffff;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.glow-btn,
+.glow-btn-secondary {
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.glow-btn {
+  background: #00ffc3;
+  color: #000;
+  box-shadow: 0 0 25px #00ffc3;
+}
+
+.glow-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px #00fff0;
+}
+
+.glow-btn-secondary {
+  background: transparent;
+  border: 2px solid #00ffc3;
+  color: #00ffc3;
+}
+
+.glow-btn-secondary:hover {
+  background: #00ffc3;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Glow animation for logo */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px #00ffc3);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 35px #00ffc3);
+  }
+}
+
+/* ======== Statistics Animations ======== */
+.bar-fill {
+  display: inline-block;
+  height: 12px;
+  background: linear-gradient(90deg, #00ffc3, #008cff);
+  border-radius: 8px;
+  width: 0;
+  transition: width 1.5s ease;
+  box-shadow: 0 0 8px #00ffc355;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

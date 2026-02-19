@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NIHAM HealthWise — Final</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/special-modes.css" />
+  </head>
+  <body>
+    <!-- ========================== -->
+    <!-- HEADER -->
+    <!-- ========================== -->
+    <header class="header">
+      <h1 data-i18n="site.title">NIHAM HealthWise</h1>
+      <div data-i18n="site.subtitle" style="color: var(--accent); font-size: 16px; font-weight: 600; margin-top: 5px;">Offline AI Health Assistant for Rural India</div>
+      <div data-i18n="site.tagline" style="color: var(--muted); margin-top: 3px;">Blending Nature, Health, and Innovation</div>
+    </header>
+
+    <!-- ========================== -->
+    <!-- NAVIGATION -->
+    <!-- ========================== -->
+    <nav class="nav" role="navigation" aria-label="Main">
+      <button data-page="home" class="active" data-i18n="nav.home">Home</button>
+      <button data-page="explore" data-i18n="nav.explore">Explore Diseases</button>
+      <button data-page="remedies" data-i18n="nav.remedies">Natural Remedies</button>
+      <button data-page="vaccines" data-i18n="nav.vaccines">Vaccines</button>
+      <button data-page="ai-prediction" data-i18n="nav.aiPrediction">AI Prediction</button>
+      <button data-page="image-detection" data-i18n="nav.imageDetection">Image Detection</button>
+      <button data-page="chatbot" data-i18n="nav.chatbot">Chatbot</button>
+      <button data-page="statistics" data-i18n="nav.statistics">Statistics</button>
+      <button data-page="about" data-i18n="nav.about">About</button>
+      
+      <!-- Emergency Mode Toggle -->
+      <button 
+        id="emergencyModeBtn" 
+        style="margin-left: 12px; padding: 8px 16px; background: rgba(255,0,92,0.2); color: #ff005c; border: 1px solid #ff005c; border-radius: 8px; cursor: pointer; font-weight: bold; animation: pulse 2s infinite;"
+        title="Quick access to emergency information (Ctrl+E)"
+        data-i18n="nav.emergency"
+      >
+        🚨 Emergency
+      </button>
+
+      <!-- User Profile -->
+      <div id="userProfile" style="margin-left: auto; display: flex; align-items: center; gap: 10px;">
+        <div id="userInfo" style="display: none; align-items: center; gap: 10px;">
+          <div style="text-align: right;">
+            <div id="userName" style="color: var(--accent); font-size: 14px; font-weight: 600;"></div>
+            <div id="userScore" style="color: var(--muted); font-size: 12px;"></div>
+          </div>
+          <button id="logoutBtn" style="padding: 6px 12px; background: rgba(255,0,92,0.2); color: #ff005c; border: 1px solid #ff005c; border-radius: 6px; cursor: pointer; font-size: 12px;">
+            Logout
+          </button>
+        </div>
+        <a href="login.html" id="loginLink" style="padding: 6px 12px; background: rgba(0,255,195,0.2); color: var(--accent); border: 1px solid var(--accent); border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600;">
+          Login
+        </a>
+      </div>
+      
+      <select
+        id="langSelect"
+        aria-label="Select language"
+        style="
+          margin-left: 12px;
+          padding: 6px;
+          border-radius: 8px;
+          background: #08131a;
+          color: #cfe;
+          border: 1px solid rgba(255, 255, 255, 0.02);
+          cursor: pointer;
+        "
+      >
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="te">తెలుగు</option>
+        <option value="ta">தமிழ்</option>
+        <option value="bn">বাংলা</option>
+        <option value="mr">मराठी</option>
+        <option value="gu">ગુજરાતી</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="ko">한국어</option>
+      </select>
+    </nav>
+
+    <!-- ========================== -->
+    <!-- MAIN CONTAINER -->
+    <!-- ========================== -->
+    <main class="container">
+      <!-- INTRO PAGE -->
+      <section id="intro" class="intro-page">
+        <div class="intro-screen">
+          <img src="NIHAM_Logo.png" alt="NIHAM Logo" class="intro-logo" />
+          <h1 class="intro-title" data-i18n="site.title">NIHAM HealthWise</h1>
+          <p class="intro-subtitle" data-i18n="site.subtitle" style="color: var(--accent); font-size: 18px; font-weight: 600; margin: 10px 0;">Offline AI Health Assistant for Rural India</p>
+          <p class="intro-tagline" data-i18n="site.tagline">Blending Nature, Health, and Innovation</p>
+        </div>
+      </section>
+
+      <!-- HOME PAGE -->
+      <section id="home" class="page">
+        <div class="animated-bg">
+          <div class="particles"></div>
+          <div class="dna-animation"></div>
+          <div class="heartbeat"></div>
+        </div>
+
+        <div class="home-content">
+          <img src="NIHAM_Logo.png" alt="NIHAM Logo" class="hero-logo" />
+          <h1 class="hero-title" data-i18n="site.title">NIHAM HealthWise</h1>
+          <p class="hero-subtitle" data-i18n="site.subtitle" style="color: var(--accent); font-size: 20px; font-weight: 600; margin: 15px 0;">Offline AI Health Assistant for Rural India</p>
+          <p class="hero-tagline" data-i18n="site.tagline" style="color: var(--muted); margin-bottom: 30px;">Blending Nature, Health, and Innovation</p>
+
+          <div class="hero-buttons">
+            <button class="glow-btn" data-i18n="buttons.explore" onclick="setActivePage('explore')">Explore Diseases</button>
+            <button class="glow-btn-secondary" data-i18n="buttons.chat" onclick="setActivePage('chatbot')">Chat with AI</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPLORE DISEASES PAGE -->
+      <section id="explore" class="page">
+        <h2 style="color: var(--accent)" data-i18n="sections.explore">Diseases Explorer</h2>
+
+        <div class="search-row" aria-label="Search disease">
+          <input id="diseaseSearch" type="text" placeholder="Search disease..." data-i18n-placeholder="search.disease" />
+          <button id="searchBtn" data-i18n="buttons.search">Search</button>
+          <button id="showAllBtn" data-i18n="buttons.showAll">Show All</button>
+        </div>
+
+        <div class="card-list" id="diseaseList">
+          <!-- Programmatically filled -->
+        </div>
+      </section>
+
+      <!-- NATURAL REMEDIES PAGE -->
+      <section id="remedies" class="page">
+        <h2 style="color: var(--accent)" data-i18n="sections.remedies">Natural & Home Remedies</h2>
+
+        <div class="search-row" aria-label="Search remedy">
+          <input id="remedySearch" type="text" placeholder="Search remedy..." data-i18n-placeholder="search.remedy" />
+          <button id="remedySearchBtn" data-i18n="buttons.search">Search</button>
+          <button id="remedyShowAllBtn" data-i18n="buttons.showAll">Show All</button>
+        </div>
+
+        <div class="card-list" id="remedyList">
+          <!-- Programmatically filled -->
+        </div>
+      </section>
+
+      <!-- VACCINES PAGE -->
+      <section id="vaccines" class="page">
+        <h2 style="color: var(--accent)" data-i18n="vaccines.title">💉 Vaccine Schedule</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;" data-i18n="vaccines.subtitle">
+          Enter your age and gender to see recommended vaccines
+        </p>
+
+        <div class="vaccine-input-section" style="background: rgba(0,255,195,0.05); padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+          <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-end;">
+            <div style="flex: 1; min-width: 150px;">
+              <label for="vaccineAge" style="display: block; margin-bottom: 8px; color: var(--accent);" data-i18n="vaccines.ageLabel">Age (years)</label>
+              <input 
+                id="vaccineAge" 
+                type="number" 
+                min="0" 
+                max="120" 
+                placeholder="Enter age"
+                data-i18n-placeholder="vaccines.agePlaceholder"
+                style="width: 100%; padding: 10px; border-radius: 8px; background: #08131a; color: #cfe; border: 1px solid rgba(0,255,195,0.3);"
+              />
+            </div>
+            
+            <div style="flex: 1; min-width: 150px;">
+              <label for="vaccineGender" style="display: block; margin-bottom: 8px; color: var(--accent);" data-i18n="vaccines.genderLabel">Gender</label>
+              <select 
+                id="vaccineGender" 
+                style="width: 100%; padding: 10px; border-radius: 8px; background: #08131a; color: #cfe; border: 1px solid rgba(0,255,195,0.3); cursor: pointer;"
+              >
+                <option value="both" data-i18n="vaccines.genderSelect">Select Gender</option>
+                <option value="male" data-i18n="vaccines.genderMale">Male</option>
+                <option value="female" data-i18n="vaccines.genderFemale">Female</option>
+              </select>
+            </div>
+            
+            <button 
+              id="getVaccinesBtn" 
+              data-i18n="vaccines.getVaccinesBtn"
+              style="padding: 10px 30px; background: linear-gradient(135deg, #00ffc3, #00a8ff); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;"
+            >
+              Get Vaccines
+            </button>
+          </div>
+        </div>
+
+        <div id="vaccineResults" style="margin-top: 30px;">
+          <p style="color: var(--muted); text-align: center; padding: 40px;" data-i18n="vaccines.defaultMessage">
+            Enter your age and gender above to see your personalized vaccine schedule
+          </p>
+        </div>
+      </section>
+
+      <!-- AI DISEASE PREDICTION PAGE -->
+      <section id="ai-prediction" class="page">
+        <h2 style="color: var(--accent)">🤖 AI Disease Prediction</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          Enter your symptoms and our AI will predict possible diseases
+        </p>
+
+        <div style="background: rgba(0,255,195,0.05); padding: 25px; border-radius: 12px; margin-bottom: 30px;">
+          <h3 style="color: var(--accent); margin-bottom: 15px;">Select Your Symptoms</h3>
+          
+          <div id="symptomCheckboxes" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+            <!-- Symptoms will be populated here -->
+          </div>
+
+          <div style="margin-top: 20px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--accent);">Additional Symptoms (Optional)</label>
+            <textarea 
+              id="additionalSymptoms" 
+              placeholder="Describe any other symptoms you're experiencing..."
+              style="width: 100%; padding: 12px; border-radius: 8px; background: #08131a; color: #cfe; border: 1px solid rgba(0,255,195,0.3); min-height: 80px; font-family: inherit;"
+            ></textarea>
+          </div>
+
+          <button 
+            id="predictDiseaseBtn" 
+            style="margin-top: 15px; padding: 12px 40px; background: linear-gradient(135deg, #00ffc3, #00a8ff); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px;"
+          >
+            🔍 Predict Disease
+          </button>
+        </div>
+
+        <div id="predictionResults" style="margin-top: 30px;">
+          <!-- Results will appear here -->
+        </div>
+      </section>
+
+      <!-- IMAGE-BASED DETECTION PAGE -->
+      <section id="image-detection" class="page">
+        <h2 style="color: var(--accent)">📸 Image-Based Disease Detection</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          Upload an image for AI-powered analysis (skin conditions, X-rays, etc.)
+        </p>
+
+        <div style="background: rgba(0,255,195,0.05); padding: 25px; border-radius: 12px; margin-bottom: 30px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <div 
+              id="imageDropZone" 
+              style="border: 2px dashed rgba(0,255,195,0.5); border-radius: 12px; padding: 40px; cursor: pointer; transition: all 0.3s;"
+            >
+              <div style="font-size: 48px; margin-bottom: 10px;">📷</div>
+              <p style="color: var(--accent); font-size: 18px; margin-bottom: 10px;">Click to upload or drag & drop</p>
+              <p style="color: var(--muted); font-size: 14px;">Supported: JPG, PNG, JPEG (Max 5MB)</p>
+              <input 
+                type="file" 
+                id="imageInput" 
+                accept="image/*" 
+                style="display: none;"
+              />
+            </div>
+          </div>
+
+          <div id="imagePreview" style="display: none; text-align: center; margin: 20px 0;">
+            <img id="previewImg" style="max-width: 100%; max-height: 400px; border-radius: 12px; border: 2px solid rgba(0,255,195,0.3);" />
+            <div style="margin-top: 15px;">
+              <button 
+                id="analyzeImageBtn" 
+                style="padding: 12px 40px; background: linear-gradient(135deg, #00ffc3, #00a8ff); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; margin-right: 10px;"
+              >
+                🔬 Analyze Image
+              </button>
+              <button 
+                id="clearImageBtn" 
+                style="padding: 12px 30px; background: rgba(255,0,92,0.2); color: #ff005c; border: 1px solid #ff005c; border-radius: 8px; cursor: pointer; font-weight: bold;"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; padding: 15px; background: rgba(0,168,255,0.1); border-left: 4px solid #00a8ff; border-radius: 8px;">
+            <p style="color: #00a8ff; margin: 0; font-size: 14px;">
+              <strong>💡 Tip:</strong> For best results, ensure good lighting and clear focus. This tool can analyze skin conditions, rashes, wounds, and some medical imaging.
+            </p>
+          </div>
+        </div>
+
+        <div id="imageDetectionResults" style="margin-top: 30px;">
+          <!-- Results will appear here -->
+        </div>
+      </section>
+
+      <!-- CHATBOT PAGE -->
+      <section id="chatbot" class="page">
+        <h2 style="color: var(--accent)" data-i18n="sections.chatbot">AI Health Chatbot</h2>
+        <div class="chat-wrapper">
+          <div
+            id="chatArea"
+            aria-live="polite"
+            style="display: flex; flex-direction: column"
+          ></div>
+
+          <div class="chat-input-area">
+            <input
+              id="chatInput"
+              placeholder="Ask about a disease, remedy, diet, or general health question..."
+              data-i18n-placeholder="chat.placeholder"
+            />
+            <button id="sendChatBtn" data-i18n="buttons.send">Send</button>
+          </div>
+          <p style="color: var(--muted); margin-top: 10px; font-size: 13px">
+            For emergencies, contact local medical services immediately. NIHAM is
+            informational only.
+          </p>
+        </div>
+      </section>
+
+      <!-- STATISTICS PAGE -->
+      <section id="statistics" class="page">
+        <h2 style="color: var(--accent); text-align: center">
+          Global Health Statistics
+        </h2>
+        <p
+          style="
+            color: var(--muted);
+            text-align: center;
+            margin: 10px auto;
+            max-width: 700px;
+          "
+        >
+          Visual overview of disease prevalence, recovery rates, and health
+          awareness trends.
+        </p>
+
+        <div class="charts-container">
+          <!-- Bar Chart -->
+          <div class="chart-card">
+            <h3 data-i18n="charts.mostCommon">Most Common Diseases (2025)</h3>
+            <div class="bar-chart">
+              <div class="bar-item">
+                <span data-i18n="diseases.commoncold.name">Common Cold</span>
+                <div class="bar-fill" data-width="90"></div>
+              </div>
+              <div class="bar-item">
+                <span data-i18n="diseases.fever.name">Fever</span>
+                <div class="bar-fill" data-width="85"></div>
+              </div>
+              <div class="bar-item">
+                <span data-i18n="diseases.diabetes.name">Diabetes</span>
+                <div class="bar-fill" data-width="65"></div>
+              </div>
+              <div class="bar-item">
+                <span data-i18n="diseases.hypertension.name">Hypertension</span>
+                <div class="bar-fill" data-width="70"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pie Chart -->
+          <div class="chart-card">
+            <h3 data-i18n="charts.curableVsChronic">Curable vs Chronic Conditions</h3>
+            <div class="pie-chart">
+              <div class="pie" id="pie"></div>
+              <div class="pie-labels">
+                <div>
+                  <span class="dot" style="background: #00ffc3"></span>
+                  <span data-i18n="charts.curableLabel">Curable (85%)</span>
+                </div>
+                <div>
+                  <span class="dot" style="background: #ff005c"></span>
+                  <span data-i18n="charts.chronicLabel">Chronic (15%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Counters -->
+        <div class="count-section">
+          <h3 style="color: var(--accent2)">Awareness Growth (2020–2025)</h3>
+          <div class="count-boxes">
+            <div class="count-box">
+              <h1 class="count" data-count="45">0</h1>
+              <p>2020</p>
+            </div>
+            <div class="count-box">
+              <h1 class="count" data-count="68">0</h1>
+              <p>2022</p>
+            </div>
+            <div class="count-box">
+              <h1 class="count" data-count="92">0</h1>
+              <p>2025</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT PAGE -->
+      <section id="about" class="page">
+        <div class="about-container">
+          <h2 data-i18n="about.title">About NIHAM HealthWise</h2>
+          <p class="about-intro" data-i18n="about.body"></p>
+
+          <h3 data-i18n="about.whyBuilt">🌍 Why We Built NIHAM HealthWise</h3>
+          <p data-i18n="about.whyBuiltBody"></p>
+
+          <h3 data-i18n="about.whyUse">⚡ Why You Should Use It</h3>
+          <ul class="about-points">
+            <li data-i18n-html="about.points.offline"></li>
+            <li data-i18n-html="about.points.chatbot"></li>
+            <li data-i18n-html="about.points.database"></li>
+            <li data-i18n-html="about.points.remedies"></li>
+            <li data-i18n-html="about.points.educational"></li>
+            <li data-i18n-html="about.points.privacy"></li>
+          </ul>
+
+          <h3>💡 Core Features</h3>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h4 data-i18n="features.chat.title">AI Health Chatbot</h4>
+              <p data-i18n="features.chat.body">Ask any health-related question — from common diseases to prevention tips — and get instant AI-based responses.</p>
+            </div>
+            <div class="feature-card">
+              <h4 data-i18n="features.remedy.title">Natural & Herbal Remedies</h4>
+              <p data-i18n="features.remedy.body">Discover traditional healing methods supported by nutrition, herbs, and lifestyle improvements.</p>
+            </div>
+            <div class="feature-card">
+              <h4 data-i18n="features.stats.title">Interactive Statistics</h4>
+              <p data-i18n="features.stats.body">Visualize global and local health trends through colorful, easy-to-understand bar and pie charts.</p>
+            </div>
+            <div class="feature-card">
+              <h4 data-i18n="features.innovation.title">Innovation for All</h4>
+              <p data-i18n="features.innovation.body">Designed for competitions, health expos, and awareness drives — simple yet impactful for every age group.</p>
+            </div>
+          </div>
+
+          <h3 data-i18n="core.mission.title">🚀 Our Mission</h3>
+          <p data-i18n="core.mission.body">To create a world where <strong>knowledge saves lives</strong> — where every student, teacher, and citizen can access reliable healthcare education even offline. <strong>NIHAM HealthWise</strong> is more than a website — it's a movement toward a healthier, informed, and connected world.</p>
+
+          <div class="contact-box">
+            <p>
+              <strong>Contact us:</strong>
+              <a href="mailto:nihamhealthwise2025@gmail.com"
+                >nihamhealthwise2025@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        © 2026 NIHAM HealthWise<br>
+        Developed by Niharika Vannemreddy<br>
+        Licensed under the MIT License
+      </div>
+    </main>
+
+    <!-- ========================== -->
+    <!-- SCRIPTS (Load in Order) -->
+    <!-- ========================== -->
+
+    <!-- Data Scripts -->
+    <script src="js/data/diseases.js"></script>
+    <script src="js/data/vaccines.js"></script>
+    <script src="js/data/translations.js"></script>
+    <script src="js/data/translation-dictionary.js"></script>
+
+    <!-- Utility Scripts -->
+    <script src="js/utils/utilities.js"></script>
+    <script src="js/utils/indexeddb-manager.js"></script>
+    <script src="js/utils/translation-cache.js"></script>
+
+    <!-- Feature Scripts -->
+    <script src="js/features/translation-manager.js"></script>
+    <script src="js/features/voice-manager.js"></script>
+    <script src="js/features/translation-init.js"></script>
+    <script src="js/features/search.js"></script>
+    <script src="js/features/chatbot.js"></script>
+    <script src="js/features/language.js"></script>
+    <script src="js/features/vaccines-ui.js"></script>
+    <script src="js/features/ai-prediction.js"></script>
+    <script src="js/features/image-detection.js"></script>
+    <script src="js/features/emergency-mode.js"></script>
+
+    <!-- UI Scripts -->
+    <script src="js/ui/ui-functions.js"></script>
+    <script src="js/ui/voice-button.js"></script>
+    <script src="js/ui/translation-indicator.js"></script>
+
+    <!-- Initialization -->
+    <script src="js/init.js"></script>
+  </body>
+</html>
